@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>واصل — تهيئة قاعدة البيانات</title>
+<style>
+  body{margin:0;background:#0B0F14;color:#EAF0F7;font-family:"Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.9}
+  .wrap{max-width:820px;margin:0 auto;padding:22px}
+  h1{font-size:20px;margin:0 0 6px}
+  h1 span{color:#E7C46A}
+  p{color:#8D9CB0;font-size:14px;margin:8px 0}
+  .step{background:#121822;border:1px solid #243044;border-radius:14px;padding:16px;margin:14px 0}
+  .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;
+     background:linear-gradient(145deg,#E7C46A,#B9924A);color:#14100A;font-weight:800;font-size:14px;margin-inline-end:8px}
+  button{background:linear-gradient(145deg,#E7C46A,#B9924A);color:#14100A;border:0;border-radius:10px;
+     padding:12px 18px;font-weight:700;font-family:inherit;font-size:15px;cursor:pointer;width:100%}
+  button.alt{background:#172030;color:#EAF0F7;border:1px solid #243044;margin-top:8px}
+  code,direction{font-family:ui-monospace,Menlo,monospace;direction:ltr;display:inline-block}
+  textarea{width:100%;height:150px;background:#0E141D;color:#8D9CB0;border:1px solid #243044;
+     border-radius:10px;padding:10px;font-family:ui-monospace,monospace;font-size:10px;direction:ltr;margin-top:10px}
+  .ok{color:#9BE3B4}
+  a{color:#E7C46A}
+</style></head>
+<body><div class="wrap">
+  <h1>تهيئة قاعدة بيانات <span>واصل</span></h1>
+  <p>شغّل هذا الملف مرة واحدة على مشروع Supabase. آمن لو شغّلته مرتين — لا يمسح أي بيانات.</p>
+
+  <div class="step">
+    <p><span class="n">١</span> افتح مشروعك في Supabase ← القائمة اليسرى <b>SQL Editor</b> ← <b>New query</b>.</p>
+  </div>
+
+  <div class="step">
+    <p><span class="n">٢</span> انسخ المخطط كاملاً:</p>
+    <button id="copy">نسخ المخطط</button>
+    <button class="alt" id="show">عرضه لنسخه يدوياً</button>
+    <div id="status"></div>
+    <textarea id="sql" readonly hidden></textarea>
+  </div>
+
+  <div class="step">
+    <p><span class="n">٣</span> الصقه في المحرر واضغط <b>Run</b>. تظهر <b>Success. No rows returned</b> معناها تمّت التهيئة.</p>
+    <p>ثم ارجع إلى <a href="./">لوحة التحكم</a> وأدخل: Project URL، مفتاح anon، ومفتاح الإدارة.</p>
+  </div>
+
+  <p style="font-size:12px">المخطط ينشئ: السائقين، المتاجر، الطلبات، سجل الأحداث، المراجعة، الإعدادات، وكل دوال الإدارة والتوزيع.</p>
+</div>
+<script>
+const url = '../schemas/wassel-schema.sql';
+let cached = '';
+async function load() {
+  if (cached) return cached;
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error('fetch ' + res.status);
+  cached = await res.text();
+  return cached;
+}
+document.getElementById('copy').onclick = async () => {
+  const st = document.getElementById('status');
+  try {
+    const sql = await load();
+    await navigator.clipboard.writeText(sql);
+    st.innerHTML = '<p class="ok">نُسخ المخطط — الصقه في SQL Editor.</p>';
+  } catch (e) {
+    const box = document.getElementById('sql');
+    box.hidden = false; box.value = cached || '';
+    st.innerHTML = '<p>تعذر النسخ التلقائي — انسخ من الصندوق أدناه.</p>';
+  }
+};
+document.getElementById('show').onclick = async () => {
+  const box = document.getElementById('sql');
+  box.hidden = false;
+  box.value = await load();
+  box.focus(); box.select();
+};
+</script>
+</body></html>
