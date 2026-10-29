@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>واصل — لوحة التحكم</title>
+<style>
+  :root{
+    --bg:#0B0F14; --panel:#121822; --panel2:#172030; --line:#243044;
+    --gold:#E7C46A; --gold2:#B9924A; --text:#EAF0F7; --muted:#8D9CB0;
+    --ok:#3BA55D; --warn:#E0A100; --bad:#D64545; --info:#4C8DFF;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+    font-family:"Segoe UI",Tahoma,system-ui,-apple-system,sans-serif}
+  a{color:var(--gold)}
+  .wrap{max-width:1180px;margin:0 auto;padding:18px}
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#101720,#0B0F14)}
+  .brand{display:flex;align-items:center;gap:10px}
+  .logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-weight:800;
+    background:linear-gradient(145deg,var(--gold),var(--gold2));color:#14100A}
+  .brand h1{font-size:16px;margin:0}
+  .brand span{font-size:11px;color:var(--muted)}
+  .btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);
+    padding:9px 14px;border-radius:10px;cursor:pointer;font-size:13px;font-family:inherit;transition:.15s}
+  .btn:hover{border-color:var(--gold2)}
+  .btn.primary{background:linear-gradient(145deg,var(--gold),var(--gold2));color:#14100A;
+    border:0;font-weight:700}
+  .btn.ghost{background:transparent}
+  .btn.danger{border-color:#5A2B2B;color:#F2B8B8;background:#241417}
+  .btn.sm{padding:6px 10px;font-size:12px}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  input,select{width:100%;background:#0E141D;border:1px solid var(--line);color:var(--text);
+    padding:11px 12px;border-radius:10px;font-family:inherit;font-size:14px}
+  input:focus,select:focus{outline:0;border-color:var(--gold2)}
+  label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
+  .grid{display:grid;gap:14px}
+  .cards{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .card .k{font-size:12px;color:var(--muted)}
+  .card .v{font-size:26px;font-weight:800;margin-top:6px;letter-spacing:-.5px}
+  .card .s{font-size:11px;color:var(--muted);margin-top:4px}
+  .v.gold{color:var(--gold)}
+  nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
+  .tab{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);
+    color:var(--muted);cursor:pointer;font-size:13px;font-family:inherit}
+  .tab.on{background:var(--panel2);color:var(--gold);border-color:var(--gold2)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:right;color:var(--muted);font-weight:600;font-size:12px;padding:10px 8px;
+    border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:11px 8px;border-bottom:1px solid #1B2433;vertical-align:middle}
+  tr:hover td{background:#121A26}
+  .chip{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;
+    border:1px solid var(--line);background:#0E141D;color:var(--muted);white-space:nowrap}
+  .chip.ok{color:#9BE3B4;border-color:#1F5C38;background:#0F2118}
+  .chip.warn{color:#F5D98A;border-color:#5A4713;background:#241D0C}
+  .chip.bad{color:#F2B8B8;border-color:#5A2B2B;background:#241417}
+  .chip.info{color:#B7D3FF;border-color:#23457A;background:#0F1A2B}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-inline-end:6px}
+  .dot.on{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+  .dot.off{background:#3A4658}
+  .row-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .muted{color:var(--muted);font-size:12px}
+  .empty{padding:26px;text-align:center;color:var(--muted);font-size:13px}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-bottom:12px}
+  .toolbar > div{flex:1;min-width:150px}
+  .bars{display:grid;gap:8px;margin-top:10px}
+  .bar{display:grid;grid-template-columns:110px 1fr 46px;gap:8px;align-items:center;font-size:12px}
+  .bar .track{height:8px;background:#0E141D;border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+  .bar .fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+  #login{max-width:430px;margin:8vh auto;background:var(--panel);border:1px solid var(--line);
+    border-radius:18px;padding:26px}
+  #login h2{margin:0 0 6px;font-size:20px}
+  #login p{color:var(--muted);font-size:13px;margin:0 0 16px;line-height:1.7}
+  .msg{margin-top:12px;font-size:13px;padding:10px 12px;border-radius:10px;display:none}
+  .msg.show{display:block}
+  .msg.err{background:#241417;border:1px solid #5A2B2B;color:#F2B8B8}
+  .msg.ok{background:#0F2118;border:1px solid #1F5C38;color:#9BE3B4}
+  dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:16px;
+    padding:0;max-width:720px;width:calc(100% - 28px)}
+  dialog::backdrop{background:#000A}
+  .dlg-head{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;
+    border-bottom:1px solid var(--line)}
+  .dlg-body{padding:18px;max-height:70vh;overflow:auto}
+  .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+  .kv div{background:#0E141D;border:1px solid var(--line);border-radius:10px;padding:10px}
+  .kv .k{font-size:11px;color:var(--muted)}
+  .kv .v{font-size:16px;font-weight:700;margin-top:4px}
+  .foot{color:var(--muted);font-size:11px;text-align:center;padding:22px 0}
+  @media(max-width:640px){
+    .brand h1{font-size:14px}
+    td,th{padding:8px 6px;font-size:12px}
+    .card .v{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<section id="login" hidden>
+  <h2>لوحة تحكم واصل</h2>
+  <p>أدخل بيانات مشروع Supabase نفسه المستخدم في التطبيق. مفتاح الإدارة يُستخدم لتوقيع كل طلب ولا يُرسل لأي مكان آخر.</p>
+  <label>رابط المشروع (Project URL)</label>
+  <input id="in-url" placeholder="https://xxxx.supabase.co" dir="ltr" />
+  <label>مفتاح anon</label>
+  <input id="in-anon" placeholder="eyJhbGciOi..." dir="ltr" />
+  <label>مفتاح الإدارة (المراجعة)</label>
+  <input id="in-key" type="password" placeholder="مفتاحك الخاص" dir="ltr" />
+  <div style="margin-top:16px"><button class="btn primary" id="btn-login" style="width:100%">دخول</button></div>
+  <div class="msg" id="login-msg"></div>
+</section>
+
+<div id="shell" hidden>
+  <header class="top">
+    <div class="brand">
+      <div class="logo">و</div>
+      <div><h1>واصل — لوحة التحكم</h1><span id="sub">إدارة شبكة التوصيل</span></div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn sm" id="btn-refresh">تحديث</button>
+      <button class="btn sm ghost" id="btn-logout">خروج</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="tabs">
+      <button class="tab on" data-tab="overview">نظرة عامة</button>
+      <button class="tab" data-tab="drivers">السائقون</button>
+      <button class="tab" data-tab="orders">الطلبات</button>
+      <button class="tab" data-tab="pricing">التسعير</button>
+    </nav>
+    <div class="msg" id="global-msg"></div>
+
+    <section id="tab-overview">
+      <div class="grid cards" id="stat-cards"></div>
+      <div class="grid" style="grid-template-columns:1fr;margin-top:14px">
+        <div class="card">
+          <div class="k">الطلبات حسب نوع المتجر</div>
+          <div class="bars" id="cat-bars"></div>
+        </div>
+        <div class="card">
+          <div class="k" style="margin-bottom:10px">أحدث الطلبات</div>
+          <div id="latest-orders"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-drivers" hidden>
+      <div class="toolbar">
+        <div><label>بحث بالاسم أو الهاتف</label><input id="drv-q" placeholder="اكتب للبحث" /></div>
+        <div><label>الحالة</label>
+          <select id="drv-status">
+            <option value="ALL">الكل</option><option value="APPROVED">معتمد</option>
+            <option value="PENDING">بانتظار المراجعة</option><option value="SUSPENDED">موقوف</option>
+            <option value="REJECTED">مرفوض</option>
+          </select>
+        </div>
+        <div style="max-width:180px">
+          <label>المتصلون الآن</label>
+          <select id="drv-online"><option value="0">الكل</option><option value="1">المتصلون فقط</option></select>
+        </div>
+        <div style="max-width:170px"><button class="btn primary" id="btn-add-open" style="width:100%">+ إضافة سائق</button></div>
+      </div>
+      <div class="card" id="add-driver-card" hidden style="margin-bottom:14px">
+        <div class="k" style="margin-bottom:8px">إضافة سائق واعتماده</div>
+        <div class="toolbar" style="margin:0">
+          <div><label>الاسم الكامل</label><input id="nd-name" /></div>
+          <div><label>الهاتف</label><input id="nd-phone" placeholder="09xxxxxxxx" dir="ltr" /></div>
+          <div><label>رقم الرخصة</label><input id="nd-lic" /></div>
+          <div><label>انتهاء الرخصة</label><input id="nd-exp" placeholder="YYYY-MM-DD" dir="ltr" /></div>
+          <div style="max-width:140px"><button class="btn primary" id="btn-add" style="width:100%">إضافة</button></div>
+        </div>
+        <div class="msg" id="add-msg"></div>
+      </div>
+      <div class="card"><div id="drivers-summary" class="muted" style="margin-bottom:8px"></div><div id="drivers-table"></div></div>
+    </section>
+
+    <section id="tab-orders" hidden>
+      <div class="toolbar">
+        <div><label>بحث</label><input id="ord-q" placeholder="رقم الطلب أو المتجر أو السائق" /></div>
+        <div><label>الحالة</label>
+          <select id="ord-status">
+            <option value="ALL">الكل</option><option value="POOL">في السوق</option>
+            <option value="CLAIMED">استلمها سائق</option><option value="PICKED_UP">في الطريق</option>
+            <option value="DELIVERED">سُلّم</option><option value="CANCELLED">ملغى</option>
+          </select>
+        </div>
+      </div>
+      <div class="card"><div id="orders-table"></div></div>
+    </section>
+
+    <section id="tab-pricing" hidden>
+      <div class="card" style="max-width:520px">
+        <div class="k">سعر التوصيل</div>
+        <label>سعر الكيلومتر (ج.س)</label><input id="p-rate" inputmode="decimal" dir="ltr" />
+        <label>معامل الطريق</label><input id="p-factor" inputmode="decimal" dir="ltr" />
+        <div class="muted" id="p-preview" style="margin-top:10px"></div>
+        <div style="margin-top:14px"><button class="btn primary" id="btn-save-pricing" style="width:100%">حفظ للجميع على الشبكة</button></div>
+        <div class="msg" id="pricing-msg"></div>
+      </div>
+    </section>
+
+    <div class="foot">واصل — لوحة تحكم المالك. كل الطلبات موثوقة بمفتاح الإدارة داخل قاعدة البيانات.</div>
+  </div>
+</div>
+
+<dialog id="driver-dialog">
+  <div class="dlg-head"><strong id="dlg-title">ملف السائق</strong>
+    <button class="btn sm ghost" id="dlg-close">إغلاق</button></div>
+  <div class="dlg-body" id="dlg-body"></div>
+</dialog>
+
+<script>
+(function(){
+/* منطق لوحة التحكم — نقي وقابل للاختبار، ويعمل في المتصفح وفي node. */
+
+const STATUS_LABEL = {
+  POOL: 'في السوق', CLAIMED: 'استلمها سائق', PICKED_UP: 'في الطريق',
+  DELIVERED: 'سُلّم', CANCELLED: 'ملغى',
+};
+const DRIVER_STATUS_LABEL = {
+  APPROVED: 'معتمد', PENDING: 'بانتظار المراجعة', REJECTED: 'مرفوض',
+  SUSPENDED: 'موقوف', DRAFT: 'مسودة',
+};
+const CATEGORY_LABEL = {
+  supermarket: 'سوبرماركت', pharmacy: 'صيدلية', restaurant: 'مطعم',
+  bakery: 'مخبز', vegetables: 'خضروات', other: 'متجر آخر',
+};
+
+const statusLabel = (s) => STATUS_LABEL[s] ?? s ?? '—';
+const driverStatusLabel = (s) => DRIVER_STATUS_LABEL[s] ?? s ?? '—';
+const categoryLabel = (c) => CATEGORY_LABEL[c] ?? c ?? 'متجر';
+
+/** أرقام بفواصل عربية-غربية مقروءة. */
+function fmtNum(n) {
+  const v = Number(n);
+  if (!Number.isFinite(v)) return '0';
+  return v.toLocaleString('en-US', { maximumFractionDigits: 0 });
+}
+function fmtMoney(n) {
+  const v = Number(n);
+  if (!Number.isFinite(v)) return '0 ج.س';
+  return `${v.toLocaleString('en-US', { maximumFractionDigits: 0 })} ج.س`;
+}
+
+/** «قبل ٣ دقائق» بالعربية. */
+function relativeTime(iso, now = Date.now()) {
+  if (!iso) return '—';
+  const t = new Date(iso).getTime();
+  if (!Number.isFinite(t)) return '—';
+  const diff = Math.max(0, Math.floor((now - t) / 1000));
+  if (diff < 60) return 'الآن';
+  if (diff < 3600) return `قبل ${Math.floor(diff / 60)} دقيقة`;
+  if (diff < 86400) return `قبل ${Math.floor(diff / 3600)} ساعة`;
+  const days = Math.floor(diff / 86400);
+  if (days === 1) return 'أمس';
+  if (days < 30) return `قبل ${days} يوم`;
+  return new Date(t).toISOString().slice(0, 10);
+}
+
+/** يحوّل صفوف admin_list_drivers إلى شكل اللوحة. */
+function mapDriver(row) {
+  return {
+    id: String(row.id ?? ''),
+    fullName: String(row.full_name ?? ''),
+    phone: String(row.phone ?? ''),
+    licenceNo: row.licence_no ?? null,
+    licenceExpiry: row.licence_expiry ? String(row.licence_expiry).slice(0, 10) : null,
+    status: String(row.status ?? 'PENDING'),
+    activeOrders: Number(row.active_orders ?? 0),
+    deliveredOrders: Number(row.delivered_orders ?? 0),
+    lat: row.last_lat ?? null,
+    lng: row.last_lng ?? null,
+    locationAt: row.location_at ?? null,
+  };
+}
+
+/** السائق متصل إن أرسل موقعه خلال ١٠ دقائق. */
+function isOnline(driver, now = Date.now()) {
+  const t = driver.locationAt ? new Date(driver.locationAt).getTime() : NaN;
+  return Number.isFinite(t) && now - t < 10 * 60 * 1000;
+}
+
+function sortDrivers(rows, now = Date.now()) {
+  const rank = { PENDING: 0, APPROVED: 1, SUSPENDED: 2, REJECTED: 3, DRAFT: 4 };
+  return [...rows].sort((a, b) => {
+    const online = Number(isOnline(b, now)) - Number(isOnline(a, now));
+    if (online) return online;
+    const r = (rank[a.status] ?? 9) - (rank[b.status] ?? 9);
+    if (r) return r;
+    return b.deliveredOrders - a.deliveredOrders;
+  });
+}
+
+function filterDrivers(rows, { query = '', status = 'ALL', onlineOnly = false } = {}, now = Date.now()) {
+  const q = String(query).trim().toLowerCase();
+  return rows.filter((d) => {
+    if (status !== 'ALL' && d.status !== status) return false;
+    if (onlineOnly && !isOnline(d, now)) return false;
+    if (!q) return true;
+    return `${d.fullName} ${d.phone} ${d.licenceNo ?? ''}`.toLowerCase().includes(q);
+  });
+}
+
+/** الطلبات: فلترة بالحالة والبحث بالمتصفح أو المتجر أو السائق. */
+function filterOrders(rows, { query = '', status = 'ALL' } = {}) {
+  const q = String(query).trim().toLowerCase();
+  return rows.filter((o) => {
+    if (status !== 'ALL' && o.status !== status) return false;
+    if (!q) return true;
+    return `${o.external_id ?? ''} ${o.store_name ?? ''} ${o.driver_name ?? ''} ${o.customer_name ?? ''}`
+      .toLowerCase().includes(q);
+  });
+}
+
+function deleteBlockedReason(driver) {
+  if (!driver) return 'السائق غير موجود';
+  if (driver.activeOrders > 0) return `لديه ${driver.activeOrders} طلب جارٍ — لا يمكن حذفه قبل التسليم`;
+  return null;
+}
+
+function validateNewDriver(d) {
+  if (String(d.fullName ?? '').trim().length < 4) return { ok: false, error: 'اكتب اسم السائق (٤ أحرف على الأقل)' };
+  const digits = String(d.phone ?? '').replace(/\D/g, '');
+  if (digits.length < 9) return { ok: false, error: 'رقم الهاتف غير صحيح' };
+  if ((d.status ?? 'APPROVED') === 'APPROVED') {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(d.licenceExpiry ?? ''))) {
+      return { ok: false, error: 'تاريخ انتهاء الرخصة مطلوب (YYYY-MM-DD)' };
+    }
+    if (String(d.licenceExpiry) < new Date().toISOString().slice(0, 10)) {
+      return { ok: false, error: 'الرخصة منتهية — لا يمكن اعتماده' };
+    }
+  }
+  return { ok: true };
+}
+
+function validatePricing(rate, factor) {
+  if (!Number.isFinite(rate) || rate <= 0) return { ok: false, error: 'سعر الكيلومتر يجب أن يكون أكبر من صفر' };
+  if (!Number.isFinite(factor) || factor <= 0 || factor > 5) return { ok: false, error: 'معامل الطريق بين ٠ و٥' };
+  return { ok: true };
+}
+
+/** ملخص يُعرض أعلى قائمة السائقين. */
+function driverSummary(rows, now = Date.now()) {
+  const online = rows.filter((d) => isOnline(d, now)).length;
+  const active = rows.reduce((n, d) => n + d.activeOrders, 0);
+  const delivered = rows.reduce((n, d) => n + d.deliveredOrders, 0);
+  return { total: rows.length, online, active, delivered };
+}
+
+/** رسائل الأخطاء من قاعدة البيانات إلى العربية. */
+function describeError(raw) {
+  const t = String(raw ?? '');
+  if (t.includes('BAD_KEY')) return 'مفتاح الإدارة غير صحيح';
+  if (t.includes('BAD_STORE_KEY')) return 'مفتاح المتجر غير صحيح';
+  if (t.includes('LICENCE_REQUIRED')) return 'الرخصة مطلوبة وسارية للاعتماد';
+  if (t.includes('PHONE_INVALID')) return 'رقم الهاتف غير صحيح';
+  if (t.includes('NAME_REQUIRED')) return 'الاسم مطلوب';
+  if (t.includes('DRIVER_HAS_ACTIVE_ORDERS')) return 'لديه طلب جارٍ — سلّمه أولاً';
+  if (t.includes('DRIVER_NOT_FOUND')) return 'السائق غير موجود';
+  if (t.includes('RATE_INVALID')) return 'سعر غير صالح';
+  if (t.includes('FACTOR_INVALID')) return 'معامل الطريق غير صالح';
+  if (t.includes('REASON_REQUIRED')) return 'سبب الرفض مطلوب';
+  if (/Failed to fetch|NetworkError|Load failed/i.test(t)) return 'تعذر الوصول إلى Supabase — تحقق من الرابط والاتصال';
+  if (/JWT|apikey|401|403/i.test(t)) return 'مفتاح anon غير صحيح';
+  return 'حدث خطأ غير متوقع';
+}
+
+/** عميل Supabase عبر RPC — يعمل من صفحة محلية أو مستضافة. */
+function makeClient({ url, anonKey, adminKey }, fetchImpl = globalThis.fetch) {
+  const base = String(url || '').replace(/\/+$/, '');
+  const key = String(anonKey || '');
+  async function rpc(fn, body) {
+    let res;
+    try {
+      res = await fetchImpl(`${base}/rest/v1/rpc/${fn}`, {
+        method: 'POST',
+        headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+    } catch (e) {
+      throw new Error(describeError(e?.message));
+    }
+    const text = await res.text();
+    if (!res.ok) throw new Error(describeError(text || res.status));
+    return text ? JSON.parse(text) : null;
+  }
+  return {
+    stats: () => rpc('admin_stats', { p_key: adminKey }),
+    drivers: () => rpc('admin_list_drivers', { p_key: adminKey }),
+    driverDetail: (id) => rpc('admin_driver_detail', { p_key: adminKey, p_driver: id }),
+    orders: (status = null, limit = 200) => rpc('admin_orders', { p_key: adminKey, p_limit: limit, p_status: status }),
+    addDriver: (d) => rpc('admin_add_driver', {
+      p_key: adminKey, p_full_name: d.fullName, p_phone: d.phone,
+      p_licence_no: d.licenceNo || null, p_licence_expiry: d.licenceExpiry || null,
+      p_status: d.status || 'APPROVED',
+    }),
+    deleteDriver: (id) => rpc('admin_delete_driver', { p_key: adminKey, p_driver: id }),
+    review: (id, decision, reason = '') => rpc('review_driver', {
+      p_driver: id, p_decision: decision, p_reason: reason || null, p_key: adminKey,
+    }),
+    pricing: () => rpc('public_pricing', {}),
+    setPricing: (rate, factor) => rpc('admin_set_pricing', { p_rate: rate, p_factor: factor, p_admin_key: adminKey }),
+  };
+}
+
+const Logic = {categoryLabel, deleteBlockedReason, describeError, driverStatusLabel, driverSummary, filterDrivers, filterOrders, fmtMoney, fmtNum, isOnline, makeClient, mapDriver, relativeTime, sortDrivers, statusLabel, validateNewDriver, validatePricing};
+(function(){
+const {categoryLabel, deleteBlockedReason, describeError, driverStatusLabel, driverSummary, filterDrivers, filterOrders, fmtMoney, fmtNum, isOnline, makeClient, mapDriver, relativeTime, sortDrivers, statusLabel, validateNewDriver, validatePricing} = Logic;
+
+
+const $ = (id) => document.getElementById(id);
+const store = {
+  get() {
+    try { return JSON.parse(localStorage.getItem('wassel-admin') || 'null'); } catch { return null; }
+  },
+  set(v) { localStorage.setItem('wassel-admin', JSON.stringify(v)); },
+  clear() { localStorage.removeItem('wassel-admin'); },
+};
+
+let client = null;
+let state = { tab: 'overview', drivers: [], orders: [], stats: null, pricing: null };
+
+function say(el, text, kind = 'err') {
+  const node = $(el);
+  node.textContent = text;
+  node.className = `msg show ${kind}`;
+  if (kind === 'ok') setTimeout(() => { node.className = 'msg'; }, 3500);
+}
+
+const chipFor = (status) => {
+  const map = { APPROVED: 'ok', DELIVERED: 'ok', PENDING: 'warn', POOL: 'info', CLAIMED: 'info', PICKED_UP: 'warn', REJECTED: 'bad', SUSPENDED: 'bad', CANCELLED: 'bad' };
+  return `<span class="chip ${map[status] || ''}">${statusLabel(status)}</span>`;
+};
+const driverChip = (status) => {
+  const map = { APPROVED: 'ok', PENDING: 'warn', SUSPENDED: 'bad', REJECTED: 'bad' };
+  return `<span class="chip ${map[status] || ''}">${driverStatusLabel(status)}</span>`;
+};
+
+/* ------------------------------- login ------------------------------- */
+function showLogin(message) {
+  $('shell').hidden = true;
+  $('login').hidden = false;
+  if (message) say('login-msg', message, 'err');
+  const saved = store.get();
+  if (saved) { $('in-url').value = saved.url || ''; $('in-anon').value = saved.anonKey || ''; }
+}
+
+$('btn-login').onclick = async () => {
+  const url = $('in-url').value.trim();
+  const anonKey = $('in-anon').value.trim();
+  const adminKey = $('in-key').value.trim();
+  if (!/^https?:\/\//.test(url) || !anonKey || !adminKey) { say('login-msg', 'أكمل الحقول الثلاثة (الرابط يبدأ بـ https)'); return; }
+  const candidate = makeClient({ url, anonKey, adminKey });
+  try {
+    await candidate.stats();
+    store.set({ url, anonKey, adminKey });
+    client = candidate;
+    enterApp();
+  } catch (e) { say('login-msg', e.message); }
+};
+
+$('btn-logout').onclick = () => { store.clear(); client = null; showLogin(); $('in-key').value = ''; };
+$('btn-refresh').onclick = () => loadAll(true);
+
+function enterApp() {
+  $('login').hidden = true;
+  $('shell').hidden = false;
+  $('sub').textContent = store.get()?.url?.replace(/^https?:\/\//, '') || 'إدارة شبكة التوصيل';
+  loadAll();
+}
+
+/* ------------------------------ loading ------------------------------ */
+async function loadAll(announce = false) {
+  try {
+    const [stats, drivers, orders, pricing] = await Promise.all([
+      client.stats(), client.drivers(), client.orders(null, 300), client.pricing().catch(() => null),
+    ]);
+    state.stats = stats;
+    state.drivers = sortDrivers((drivers || []).map(mapDriver));
+    state.orders = orders || [];
+    state.pricing = Array.isArray(pricing) ? pricing[0] : pricing;
+    render();
+    if (announce) say('global-msg', 'تم التحديث', 'ok');
+  } catch (e) {
+    say('global-msg', e.message);
+  }
+}
+
+function render() {
+  renderStats(); renderCategories(); renderLatest(); renderDrivers(); renderOrders(); renderPricing();
+}
+
+function renderStats() {
+  const s = state.stats || {};
+  const d = s.drivers || {}, o = s.orders || {}, m = s.money || {};
+  const cards = [
+    ['سائقون معتمدون', fmtNum(d.approved), `${fmtNum(d.total)} مسجّل · ${fmtNum(d.pending)} بانتظار`, 'gold'],
+    ['متصلون الآن', fmtNum(d.online), 'أرسلوا موقعهم خلال ١٠ دقائق'],
+    ['طلبات في السوق', fmtNum(o.pool), 'بانتظار سائق'],
+    ['طلبات جارية', fmtNum((o.claimed || 0) + (o.picked_up || 0)), 'مستلمة أو في الطريق'],
+    ['سُلّمت اليوم', fmtNum((state.orders || []).filter((x) => x.status === 'DELIVERED' && (x.delivered_at || '').slice(0, 10) === new Date().toISOString().slice(0, 10)).length), `الإجمالي ${fmtNum(o.delivered)}`],
+    ['مُحصَّل مُسلَّم', fmtMoney(m.delivered_fees), `اليوم ${fmtMoney(m.today_fees)}`],
+    ['قيمة قيد التنفيذ', fmtMoney(m.pipeline_fees), 'لم تُسلَّم بعد'],
+    ['رخص منتهية', fmtNum(d.expired_licences), 'تحتاج إيقافاً أو تجديداً'],
+  ];
+  $('stat-cards').innerHTML = cards.map(([k, v, s2, cls]) => `
+    <div class="card"><div class="k">${k}</div>
+      <div class="v ${cls || ''}">${v}</div><div class="s">${s2}</div></div>`).join('');
+}
+
+function renderCategories() {
+  const cats = state.stats?.categories || [];
+  const max = Math.max(1, ...cats.map((c) => c.n));
+  $('cat-bars').innerHTML = cats.length ? cats.map((c) => `
+    <div class="bar"><span>${categoryLabel(c.category)}</span>
+      <span class="track"><span class="fill" style="width:${Math.round((c.n / max) * 100)}%"></span></span>
+      <span>${fmtNum(c.n)}</span></div>`).join('') : '<div class="empty">لا توجد طلبات بعد</div>';
+}
+
+function renderLatest() {
+  const rows = (state.orders || []).slice(0, 6);
+  $('latest-orders').innerHTML = rows.length ? `<table><thead><tr>
+      <th>المتجر</th><th>النوع</th><th>الحالة</th><th>السائق</th><th>الرسوم</th><th>الوقت</th>
+    </tr></thead><tbody>${rows.map((o) => `<tr>
+      <td>${esc(o.store_name)}</td><td>${categoryLabel(o.store_category)}</td>
+      <td>${chipFor(o.status)}</td><td>${esc(o.driver_name || '—')}</td>
+      <td>${fmtMoney(o.fee_sdg)}</td><td class="muted">${relativeTime(o.created_at)}</td></tr>`).join('')}
+    </tbody></table>` : '<div class="empty">لا توجد طلبات بعد</div>';
+}
+
+function esc(v) {
+  return String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function renderDrivers() {
+  const opts = {
+    query: $('drv-q').value,
+    status: $('drv-status').value,
+    onlineOnly: $('drv-online').value === '1',
+  };
+  const visible = filterDrivers(state.drivers, opts);
+  const sum = driverSummary(state.drivers);
+  $('drivers-summary').textContent =
+    `${fmtNum(visible.length)} من ${fmtNum(sum.total)} سائق · ${fmtNum(sum.online)} متصل الآن · ${fmtNum(sum.active)} طلب في أيديهم · ${fmtNum(sum.delivered)} طلب مُسلَّم`;
+  $('drivers-table').innerHTML = visible.length ? `<table><thead><tr>
+      <th>السائق</th><th>الرخصة</th><th>الحالة</th><th>جارٍ</th><th>مُسلَّم</th><th>آخر ظهور</th><th></th>
+    </tr></thead><tbody>${visible.map((d) => `<tr>
+      <td><span class="dot ${isOnline(d) ? 'on' : 'off'}"></span>${esc(d.fullName)}
+        <div class="muted" dir="ltr">${esc(d.phone)}</div></td>
+      <td>${esc(d.licenceNo || '—')}<div class="muted">${d.licenceExpiry ? 'حتى ' + esc(d.licenceExpiry) : '—'}</div></td>
+      <td>${driverChip(d.status)}</td>
+      <td>${fmtNum(d.activeOrders)}</td><td>${fmtNum(d.deliveredOrders)}</td>
+      <td class="muted">${relativeTime(d.locationAt)}</td>
+      <td><div class="row-actions">
+        <button class="btn sm" data-act="detail" data-id="${esc(d.id)}">ملف</button>
+        ${d.status !== 'APPROVED' ? `<button class="btn sm" data-act="approve" data-id="${esc(d.id)}">اعتماد</button>` : ''}
+        ${d.status !== 'SUSPENDED' ? `<button class="btn sm ghost" data-act="suspend" data-id="${esc(d.id)}">إيقاف</button>` : ''}
+        <button class="btn sm danger" data-act="delete" data-id="${esc(d.id)}">حذف</button>
+      </div></td></tr>`).join('')}</tbody></table>` : '<div class="empty">لا يطابق البحث أي سائق</div>';
+}
+
+function renderOrders() {
+  const rows = filterOrders(state.orders, { query: $('ord-q').value, status: $('ord-status').value });
+  $('orders-table').innerHTML = rows.length ? `<table><thead><tr>
+      <th>المرجع</th><th>المتجر</th><th>الحالة</th><th>السائق</th><th>العميل</th><th>المسافة</th><th>الرسوم</th><th>أُنشئ</th>
+    </tr></thead><tbody>${rows.slice(0, 200).map((o) => `<tr>
+      <td class="muted" dir="ltr">${esc(o.external_id || String(o.id).slice(0, 8))}</td>
+      <td>${esc(o.store_name)}<div class="muted">${categoryLabel(o.store_category)}</div></td>
+      <td>${chipFor(o.status)}</td>
+      <td>${esc(o.driver_name || '—')}${o.driver_phone ? `<div class="muted" dir="ltr">${esc(o.driver_phone)}</div>` : ''}</td>
+      <td>${esc(o.customer_name || '—')}${o.customer_phone ? `<div class="muted" dir="ltr">${esc(o.customer_phone)}</div>` : ''}</td>
+      <td>${o.distance_km ? fmtNum(o.distance_km) + ' كم' : '—'}</td>
+      <td>${fmtMoney(o.fee_sdg)}</td>
+      <td class="muted">${relativeTime(o.created_at)}</td></tr>`).join('')}</tbody></table>`
+    : '<div class="empty">لا توجد طلبات مطابقة</div>';
+}
+
+function renderPricing() {
+  const p = state.pricing || {};
+  if (document.activeElement !== $('p-rate')) $('p-rate').value = p.rate_per_km ?? '';
+  if (document.activeElement !== $('p-factor')) $('p-factor').value = p.road_factor ?? '';
+  const rate = Number($('p-rate').value), factor = Number($('p-factor').value);
+  $('p-preview').textContent = rate > 0 && factor > 0
+    ? `مثال: ١٠ كم = ${fmtMoney(Math.round(10 * factor * rate))} · ٣ كم = ${fmtMoney(Math.round(3 * factor * rate))}`
+    : 'أدخل السعر والمعامل';
+}
+
+/* ----------------------------- interactions ----------------------------- */
+$('drv-q').oninput = renderDrivers;
+$('drv-status').onchange = renderDrivers;
+$('drv-online').onchange = renderDrivers;
+$('ord-q').oninput = renderOrders;
+$('ord-status').onchange = renderOrders;
+$('p-rate').oninput = renderPricing;
+$('p-factor').oninput = renderPricing;
+
+document.querySelectorAll('.tab').forEach((tab) => {
+  tab.onclick = () => {
+    document.querySelectorAll('.tab').forEach((t) => t.classList.remove('on'));
+    tab.classList.add('on');
+    state.tab = tab.dataset.tab;
+    ['overview', 'drivers', 'orders', 'pricing'].forEach((k) => { $('tab-' + k).hidden = k !== state.tab; });
+  };
+});
+
+$('btn-add-open').onclick = () => { $('add-driver-card').hidden = !$('add-driver-card').hidden; };
+$('btn-add').onclick = async () => {
+  const d = { fullName: $('nd-name').value.trim(), phone: $('nd-phone').value.trim(),
+    licenceNo: $('nd-lic').value.trim(), licenceExpiry: $('nd-exp').value.trim(), status: 'APPROVED' };
+  const check = validateNewDriver(d);
+  if (!check.ok) { say('add-msg', check.error); return; }
+  $('btn-add').disabled = true;
+  try {
+    await client.addDriver(d);
+    ['nd-name', 'nd-phone', 'nd-lic', 'nd-exp'].forEach((id) => { $(id).value = ''; });
+    say('add-msg', 'أُضيف السائق واعتُمد', 'ok');
+    await loadAll();
+  } catch (e) { say('add-msg', e.message); } finally { $('btn-add').disabled = false; }
+};
+
+$('btn-save-pricing').onclick = async () => {
+  const rate = Number($('p-rate').value), factor = Number($('p-factor').value);
+  const check = validatePricing(rate, factor);
+  if (!check.ok) { say('pricing-msg', check.error); return; }
+  $('btn-save-pricing').disabled = true;
+  try {
+    await client.setPricing(rate, factor);
+    say('pricing-msg', 'حُفظ السعر لكل الطلبات الجديدة', 'ok');
+    await loadAll();
+  } catch (e) { say('pricing-msg', e.message); } finally { $('btn-save-pricing').disabled = false; }
+};
+
+document.addEventListener('click', async (ev) => {
+  const btn = ev.target.closest('[data-act]');
+  if (!btn) return;
+  const driver = state.drivers.find((d) => d.id === btn.dataset.id);
+  if (!driver) return;
+  const act = btn.dataset.act;
+
+  if (act === 'detail') return openDriver(driver);
+
+  if (act === 'delete') {
+    const blocked = deleteBlockedReason(driver);
+    if (blocked) return say('global-msg', blocked);
+    if (!confirm(`حذف ${driver.fullName} نهائياً؟`)) return;
+    try { await client.deleteDriver(driver.id); say('global-msg', 'حُذف السائق', 'ok'); await loadAll(); }
+    catch (e) { say('global-msg', e.message); }
+    return;
+  }
+
+  if (act === 'approve' || act === 'suspend') {
+    const decision = act === 'approve' ? 'APPROVED' : 'SUSPENDED';
+    const reason = act === 'suspend' ? (prompt('سبب الإيقاف؟') || '') : '';
+    if (act === 'suspend' && !reason.trim()) return say('global-msg', 'سبب الإيقاف مطلوب');
+    try {
+      await client.review(driver.id, decision, reason);
+      say('global-msg', decision === 'APPROVED' ? 'اعتُمد السائق' : 'أُوقف السائق', 'ok');
+      await loadAll();
+    } catch (e) { say('global-msg', e.message); }
+  }
+});
+
+async function openDriver(driver) {
+  $('dlg-title').textContent = `ملف ${driver.fullName}`;
+  $('dlg-body').innerHTML = '<div class="muted">جارٍ التحميل…</div>';
+  $('driver-dialog').showModal();
+  try {
+    const d = await client.driverDetail(driver.id);
+    const info = d.driver || {};
+    const kv = [
+      ['الحالة', driverStatusLabel(info.status)],
+      ['الهاتف', info.phone || '—'],
+      ['الرخصة', info.licence_no || '—'],
+      ['انتهاء الرخصة', info.licence_expiry ? String(info.licence_expiry).slice(0, 10) : '—'],
+      ['طلبات جارية', fmtNum(d.active_orders)],
+      ['طلبات مُسلَّمة', fmtNum(d.delivered_orders)],
+      ['ملغاة', fmtNum(d.cancelled_orders)],
+      ['إجمالي الرسوم', fmtMoney(d.earned_fees)],
+      ['متوسط الطلب', fmtMoney(d.avg_fee)],
+      ['أول طلب', d.first_order_at ? relativeTime(d.first_order_at) : '—'],
+      ['آخر طلب', d.last_order_at ? relativeTime(d.last_order_at) : '—'],
+      ['الموقع', info.last_lat ? `${Number(info.last_lat).toFixed(4)}, ${Number(info.last_lng).toFixed(4)}` : 'لم يُرسل'],
+    ];
+    const cats = (d.by_category || []).map((c) => `${categoryLabel(c.category)} (${fmtNum(c.n)})`).join(' · ') || '—';
+    const recent = (d.recent_orders || []).map((o) => `<tr>
+      <td>${esc(o.store_name)}</td><td>${categoryLabel(o.store_category)}</td>
+      <td>${chipFor(o.status)}</td><td>${fmtMoney(o.fee_sdg)}</td>
+      <td class="muted">${relativeTime(o.created_at)}</td></tr>`).join('');
+    $('dlg-body').innerHTML = `
+      <div class="kv">${kv.map(([k, v]) => `<div><div class="k">${k}</div><div class="v">${esc(v)}</div></div>`).join('')}</div>
+      <div class="muted" style="margin-bottom:8px">توزيع الطلبات: ${esc(cats)}</div>
+      ${recent ? `<table><thead><tr><th>المتجر</th><th>النوع</th><th>الحالة</th><th>الرسوم</th><th>الوقت</th></tr></thead><tbody>${recent}</tbody></table>`
+        : '<div class="empty">لا طلبات لهذا السائق بعد</div>'}`;
+  } catch (e) {
+    $('dlg-body').innerHTML = `<div class="msg show err">${esc(e.message)}</div>`;
+  }
+}
+$('dlg-close').onclick = () => $('driver-dialog').close();
+
+/* ------------------------------ start ------------------------------ */
+(function boot() {
+  const saved = store.get();
+  if (saved?.url && saved?.anonKey && saved?.adminKey) {
+    client = makeClient(saved);
+    enterApp();
+  } else showLogin();
+  setInterval(() => {
+    if (client && !document.hidden) loadAll();
+  }, 30000);
+})();
+
+})();
+})();
+</script>
+</body>
+</html>
