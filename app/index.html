@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>واصل — سوق السودان الكبير</title>
+<style>
+  :root{--green:#0F3D30;--green2:#12513F;--gold:#E7C46A;--bg:#F5F7F6;--card:#fff;--line:#E2E8E5;--txt:#111C18;--muted:#7A8A84}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",Tahoma,system-ui,sans-serif;padding-bottom:74px}
+  header{background:linear-gradient(160deg,var(--green),var(--green2));color:#fff;padding:16px 16px 14px;border-radius:0 0 22px 22px}
+  header h1{margin:0;font-size:21px;letter-spacing:.5px}
+  header p{margin:4px 0 0;font-size:12px;color:#BFD8CE}
+  .wrap{padding:14px;max-width:640px;margin:0 auto}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:0 1px 2px rgba(15,61,48,.05)}
+  .card h2{margin:0 0 4px;font-size:15px}
+  .card p.s{margin:0;font-size:12px;color:var(--muted)}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .badge{font-size:11px;padding:4px 9px;border-radius:999px;background:#EAF1EE;color:#2C5A4A;font-weight:700}
+  .badge.ph{background:#EAF0FB;color:#2F4E8F}.badge.rs{background:#FBEFE9;color:#8F4A2F}
+  .fee{color:var(--green);font-weight:800;font-size:15px;white-space:nowrap}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:10px;font-size:12px;color:#3F514A}
+  .meta span b{color:var(--muted);font-weight:600}
+  .path{margin-top:8px;font-size:12.5px;color:#33443E}
+  button{font-family:inherit}
+  .btn{width:100%;border:0;border-radius:12px;padding:12px;background:var(--green);color:#fff;font-weight:700;font-size:14px;margin-top:12px}
+  .btn.ghost{background:#fff;color:var(--green);border:1px solid var(--green)}
+  .btn:disabled{opacity:.45}
+  input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;font-size:13px;font-family:inherit;direction:ltr;margin-top:6px;background:#FCFDFC;color:var(--txt)}
+  label{font-size:12px;color:var(--muted);display:block;margin-top:10px}
+  nav{position:fixed;inset:auto 0 0 0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 4px 10px}
+  nav a{flex:1;text-align:center;font-size:11px;color:#8A9994;text-decoration:none;padding:3px 0}
+  nav a.on{color:var(--green);font-weight:800}
+  nav a i{display:block;font-size:16px;font-style:normal;margin-bottom:2px}
+  .empty{text-align:center;color:var(--muted);font-size:13px;padding:26px 8px}
+  .stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .stat div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+  .stat b{display:block;font-size:20px;color:var(--green)}
+  .stat small{font-size:11px;color:var(--muted)}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#31B36B;margin-inline-end:5px;vertical-align:middle}
+  .dot.off{background:#C9D3CF}
+</style></head>
+<body>
+<header>
+  <h1>واصل</h1>
+  <p>توصيل من كل متاجر سوق السودان الكبير</p>
+  <p id="net" style="margin-top:6px"><span class="dot off"></span>جارٍ الاتصال…</p>
+</header>
+
+<main class="wrap" id="view"></main>
+
+<nav>
+  <a href="#pool" data-tab="pool" class="on"><i>🛒</i>السوق</a>
+  <a href="#mine" data-tab="mine"><i>📦</i>طلباتي</a>
+  <a href="#earnings" data-tab="earnings"><i>💰</i>أرباحي</a>
+  <a href="#admin" data-tab="admin"><i>🧮</i>الإدارة</a>
+  <a href="#settings" data-tab="settings"><i>⚙️</i>حسابي</a>
+</nav>
+
+<script>
+const DEFAULTS = { url: 'https://clkmkepyoncwpeqepshr.supabase.co', key: 'sb_publishable_jXhRiPrJ5iXGrIzRn-tMWQ_PeNjXaTs', admin: '' };
+const cfg = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem('wassel.cfg') || '{}'));
+localStorage.setItem('wassel.cfg', JSON.stringify(cfg));
+const money = (n) => Number(n || 0).toLocaleString('en-US', { maximumFractionDigits: 0 }) + ' ج.س';
+const CAT = { supermarket: ['سوبرماركت', 'badge'], pharmacy: ['صيدلية', 'badge ph'], restaurant: ['مطعم', 'badge rs'] };
+const view = document.getElementById('view');
+const netEl = document.getElementById('net');
+let state = { tab: (location.hash || '#pool').slice(1), orders: [], drivers: [] };
+
+async function api(path, opts = {}) {
+  const res = await fetch(cfg.url + '/rest/v1/' + path, {
+    ...opts,
+    headers: { apikey: cfg.key, Authorization: 'Bearer ' + cfg.key, 'Content-Type': 'application/json', ...(opts.headers || {}) },
+  });
+  const text = await res.text();
+  if (!res.ok) throw new Error((JSON.parse(text || '{}').message) || ('HTTP ' + res.status));
+  return text ? JSON.parse(text) : null;
+}
+
+async function load() {
+  try {
+    const [pool, drivers] = await Promise.all([
+      api('orders?select=*&status=eq.POOL&order=created_at.desc&limit=50'),
+      api('drivers?select=*&limit=50'),
+    ]);
+    state.orders = pool || []; state.drivers = drivers || [];
+    const active = await api('orders?select=*&status=in.(CLAIMED,PICKED_UP,DELIVERED)&order=updated_at.desc&limit=60');
+    state.active = active || [];
+    netEl.innerHTML = '<span class="dot"></span>متصل بالمنصة · ' + new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+  } catch (e) {
+    netEl.innerHTML = '<span class="dot off"></span>تعذر الاتصال: ' + e.message;
+  }
+  render();
+}
+
+function orderCard(o, action) {
+  const c = CAT[o.store_category] || ['متجر', 'badge'];
+  return `<div class="card">
+    <div class="row"><h2>${o.store_name || 'متجر'}</h2><span class="badge ${c[1].replace('badge', '').trim()}">${c[0]}</span></div>
+    <div class="path">${o.pickup_label || 'نقطة الاستلام'} → ${o.drop_label || 'العميل'}</div>
+    <div class="meta">
+      <span><b>المسافة</b> ${Number(o.distance_km || 0).toFixed(1)} كم</span>
+      <span class="fee">${money(o.fee_sdg)}</span>
+    </div>
+    <div class="meta"><span><b>العميل</b> ${o.customer_name || '—'}</span><span><b>رقم الطلب</b> ${o.external_id || '—'}</span></div>
+    ${action || ''}
+  </div>`;
+}
+
+function render() {
+  document.querySelectorAll('nav a').forEach(a => a.classList.toggle('on', a.dataset.tab === state.tab));
+  if (state.tab === 'pool') {
+    view.innerHTML = `<div class="card"><h2>سوق الطلبات — كل المتاجر</h2><p class="s">سوبرماركت · صيدلية · مطعم · أي متجر آخر. الأجرة محسوبة مسبقاً.</p></div>`
+      + (state.orders.length ? state.orders.map(o => orderCard(o)).join('')
+        : '<div class="empty">لا توجد طلبات متاحة الآن</div>');
+  }
+  if (state.tab === 'mine') {
+    const mine = (state.active || []).filter(o => o.status !== 'DELIVERED');
+    view.innerHTML = `<div class="card"><h2>طلباتي الجارية</h2><p class="s">الطلبات المستلمة وفي الطريق.</p></div>`
+      + (mine.length ? mine.map(o => orderCard(o, `<div class="meta"><span><b>الحالة</b> ${o.status === 'CLAIMED' ? 'مستلم' : 'في الطريق'}</span></div>`)).join('')
+        : '<div class="empty">لا طلبات جارية</div>');
+  }
+  if (state.tab === 'earnings') {
+    const done = (state.active || []).filter(o => o.status === 'DELIVERED');
+    const total = done.reduce((s, o) => s + Number(o.fee_sdg || 0), 0);
+    view.innerHTML = `<div class="stat">
+        <div><b>${money(total)}</b><small>أرباحك المسلّمة</small></div>
+        <div><b>${done.length}</b><small>طلبات مكتملة</small></div>
+      </div>` + (done.length ? done.map(o => orderCard(o)).join('') : '<div class="empty">لم تسلّم طلبات بعد</div>');
+  }
+  if (state.tab === 'admin') {
+    view.innerHTML = `<div class="card"><h2>السائقون</h2><p class="s">${state.drivers.length} مسجل · يُدارون من لوحة التحكم الكاملة.</p></div>`
+      + state.drivers.map(d => `<div class="card"><div class="row"><h2>${d.full_name || 'سائق'}</h2>
+          <span class="badge">${d.status === 'APPROVED' ? 'معتمد' : d.status === 'PENDING' ? 'بانتظار' : d.status === 'REJECTED' ? 'مرفوض' : 'موقوف'}</span></div>
+          <div class="meta"><span><b>الهاتف</b> ${d.phone || '—'}</span><span><b>الرخصة</b> ${d.licence_no || '—'}</span>
+          <span><b>تنتهي</b> ${d.licence_expiry || '—'}</span></div></div>`).join('')
+      + `<div class="card"><a href="https://elhassanali36-art.github.io/Wassel-APK/admin/" style="color:#0F3D30;font-weight:700;text-decoration:none">فتح لوحة التحكم الكاملة ←</a></div>`;
+  }
+  if (state.tab === 'settings') {
+    view.innerHTML = `<div class="card"><h2>شبكة سوق السودان الكبير</h2>
+        <p class="s">نفس القيم التي تدخلها في التطبيق على هاتفك.</p>
+        <label>رابط المشروع</label><input id="f-url" value="${cfg.url}" />
+        <label>المفتاح العام (anon key)</label><input id="f-key" value="${cfg.key}" />
+        <label>مفتاح الإدارة (اختياري)</label><input id="f-admin" value="${cfg.admin}" />
+        <button class="btn" id="save">حفظ وإعادة التحميل</button>
+        <button class="btn ghost" id="refresh">تحديث الطلبات من المنصة</button>
+      </div>
+      <div class="card"><h2>عن هذه النسخة</h2><p class="s">نسخة الويب من واصل، تعرض نفس بيانات المنصة التي يراها السائق في التطبيق.</p></div>`;
+    document.getElementById('save').onclick = () => {
+      cfg.url = document.getElementById('f-url').value.trim().replace(/\/$/, '');
+      cfg.key = document.getElementById('f-key').value.trim();
+      cfg.admin = document.getElementById('f-admin').value.trim();
+      localStorage.setItem('wassel.cfg', JSON.stringify(cfg));
+      load();
+    };
+    document.getElementById('refresh').onclick = load;
+  }
+}
+
+window.addEventListener('hashchange', () => { state.tab = location.hash.slice(1) || 'pool'; render(); });
+load();
+</script>
+</body></html>
