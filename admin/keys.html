@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>واصل — مفاتيح الربط</title>
+<style>
+  body{margin:0;background:#0B0F14;color:#EAF0F7;font-family:"Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.8}
+  .wrap{max-width:720px;margin:0 auto;padding:20px}
+  h1{font-size:19px;margin:0 0 4px}h1 span{color:#E7C46A}
+  p.sub{color:#8D9CB0;font-size:13px;margin:0 0 16px}
+  .box{background:#121822;border:1px solid #243044;border-radius:14px;padding:16px;margin-bottom:12px}
+  .lbl{font-size:12px;color:#8D9CB0;margin-bottom:6px}
+  .val{background:#0E141D;border:1px solid #243044;border-radius:10px;padding:12px;
+       font-family:ui-monospace,Menlo,monospace;font-size:13px;direction:ltr;word-break:break-all;user-select:all}
+  button{background:linear-gradient(145deg,#E7C46A,#B9924A);color:#14100A;border:0;border-radius:10px;
+    padding:11px 16px;font-weight:700;font-family:inherit;font-size:14px;cursor:pointer;width:100%;margin-top:10px}
+  button.done{background:#1F5C38;color:#D8F5E4}
+  .hint{font-size:12px;color:#8D9CB0;margin-top:8px}
+  a{color:#E7C46A}
+</style></head>
+<body><div class="wrap">
+  <h1>مفاتيح ربط <span>واصل</span></h1>
+  <p class="sub">الصقها في التطبيق (حسابي ← الشبكة) وفي لوحة التحكم. كل زر ينسخ القيمة وحدها.</p>
+
+  <div class="box">
+    <div class="lbl">Project URL</div>
+    <div class="val" id="v-url">https://clkmkepyoncwpeqepshr.supabase.co</div>
+    <button data-copy="v-url">نسخ الرابط</button>
+  </div>
+
+  <div class="box">
+    <div class="lbl">anon key (المفتاح العام)</div>
+    <div class="val" id="v-anon">sb_publishable_jXhRiPrJ5iXGrIzRn-tMWQ_PeNjXaTs</div>
+    <button data-copy="v-anon">نسخ المفتاح</button>
+    <div class="hint">هذا المفتاح عام بطبيعته ويوضع داخل التطبيق.</div>
+  </div>
+
+  <div class="box" id="admin-box" hidden>
+    <div class="lbl">مفتاح الإدارة</div>
+    <div class="val" id="v-admin"></div>
+    <button data-copy="v-admin">نسخ مفتاح الإدارة</button>
+    <div class="hint">لا تشاركه. يُدخل في التطبيق وفي اللوحة فقط.</div>
+  </div>
+
+  <div class="box">
+    <a href="./">فتح لوحة التحكم</a> · <a href="./setup.html">صفحة تهيئة قاعدة البيانات</a>
+  </div>
+</div>
+<script>
+  // مفتاح الإدارة لا يُخزَّن في الملف: يصل في جزء الرابط بعد # ولا يُرسل لأي خادم
+  const hash = new URLSearchParams(location.hash.slice(1));
+  const admin = hash.get('k');
+  if (admin) {
+    document.getElementById('v-admin').textContent = admin;
+    document.getElementById('admin-box').hidden = false;
+  }
+  document.querySelectorAll('button[data-copy]').forEach((btn) => {
+    btn.onclick = async () => {
+      const text = document.getElementById(btn.dataset.copy).textContent.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (e) {
+        const r = document.createRange();
+        r.selectNodeContents(document.getElementById(btn.dataset.copy));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        document.execCommand('copy');
+      }
+      const old = btn.textContent;
+      btn.textContent = 'نُسخ ✓';
+      btn.classList.add('done');
+      setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1800);
+    };
+  });
+</script>
+</body></html>
