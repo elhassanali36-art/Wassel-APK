@@ -8,6 +8,330 @@
  },
  "categories": [
   {
+   "id": "phones",
+   "name": "الهواتف",
+   "tagline": "أشهر الماركات بضمان",
+   "icon": "📱",
+   "products": [
+    {
+     "id": "apple-15pro",
+     "name": "iPhone 15 Pro",
+     "specs": "256GB · A17 Pro · كاميرا 48MP",
+     "price": 1450000,
+     "image": "img/phones/apple-15pro.jpg",
+     "tag": "الأكثر مبيعاً",
+     "oldPrice": 1520000,
+     "brand": "apple"
+    },
+    {
+     "id": "apple-13",
+     "name": "iPhone 13",
+     "specs": "128GB · A15 Bionic · شاشة OLED",
+     "price": 640000,
+     "image": "img/phones/apple-13.jpg",
+     "tag": "الأكثر مبيعاً",
+     "brand": "apple"
+    },
+    {
+     "id": "apple-11",
+     "name": "iPhone 11",
+     "specs": "64GB · بطارية تدوم اليوم كامل",
+     "price": 310000,
+     "image": "img/phones/apple-11.jpg",
+     "tag": "",
+     "brand": "apple"
+    },
+    {
+     "id": "samsung-s24u",
+     "name": "Galaxy S24 Ultra",
+     "specs": "512GB · قلم S Pen · كاميرا 200MP",
+     "price": 1320000,
+     "image": "img/phones/samsung-s24u.jpg",
+     "tag": "الأكثر مبيعاً",
+     "oldPrice": 1390000,
+     "brand": "samsung"
+    },
+    {
+     "id": "samsung-s24",
+     "name": "Galaxy S24",
+     "specs": "256GB · Snapdragon 8 Gen 3 · 120Hz",
+     "price": 890000,
+     "image": "img/phones/samsung-s24.jpg",
+     "tag": "جديد",
+     "brand": "samsung"
+    },
+    {
+     "id": "samsung-a55",
+     "name": "Galaxy A55",
+     "specs": "128GB · شاشة Super AMOLED · 5000mAh",
+     "price": 420000,
+     "image": "img/phones/samsung-a55.jpg",
+     "tag": "",
+     "brand": "samsung"
+    },
+    {
+     "id": "xiaomi-14",
+     "name": "Xiaomi 14",
+     "specs": "256GB · Leica · Snapdragon 8 Gen 3",
+     "price": 780000,
+     "image": "img/phones/xiaomi-14.jpg",
+     "tag": "جديد",
+     "brand": "xiaomi"
+    },
+    {
+     "id": "xiaomi-redmi",
+     "name": "Redmi Note 11",
+     "specs": "128GB · شاشة AMOLED · شحن 33W",
+     "price": 185000,
+     "image": "img/phones/xiaomi-redmi.jpg",
+     "tag": "",
+     "brand": "xiaomi"
+    },
+    {
+     "id": "xiaomi-notepro",
+     "name": "Redmi Note 14 Pro+",
+     "specs": "256GB · كاميرا 200MP · شحن 90W",
+     "price": 395000,
+     "image": "img/phones/xiaomi-notepro.jpg",
+     "tag": "جديد",
+     "brand": "xiaomi"
+    },
+    {
+     "id": "huawei-p60",
+     "name": "Huawei P60 Pro",
+     "specs": "256GB · كاميرا XMAGE · شحن 88W",
+     "price": 720000,
+     "image": "img/phones/huawei-p60.jpg",
+     "tag": "",
+     "brand": "huawei"
+    },
+    {
+     "id": "huawei-nova",
+     "name": "Huawei nova 15 Pro",
+     "specs": "256GB · كاميرا أمامية 60MP",
+     "price": 480000,
+     "image": "img/phones/huawei-nova.jpg",
+     "tag": "جديد",
+     "brand": "huawei"
+    },
+    {
+     "id": "oppo-reno6",
+     "name": "OPPO Reno 6 Pro+",
+     "specs": "256GB · كاميرا 50MP · شحن 65W",
+     "price": 410000,
+     "image": "img/phones/oppo-reno6.jpg",
+     "tag": "",
+     "brand": "oppo"
+    },
+    {
+     "id": "oppo-renoa",
+     "name": "OPPO Reno A",
+     "specs": "128GB · شاشة AMOLED · 3600mAh",
+     "price": 175000,
+     "image": "img/phones/oppo-renoa.jpg",
+     "tag": "",
+     "brand": "oppo"
+    },
+    {
+     "id": "realme-12",
+     "name": "realme 12",
+     "specs": "256GB · كاميرا 108MP · شحن 67W",
+     "price": 330000,
+     "image": "img/phones/realme-12.jpg",
+     "tag": "الأكثر مبيعاً",
+     "brand": "realme"
+    },
+    {
+     "id": "realme-c3",
+     "name": "realme C3",
+     "specs": "64GB · بطارية 5000mAh · شاشة 6.5\"",
+     "price": 98000,
+     "image": "img/phones/realme-c3.jpg",
+     "tag": "",
+     "brand": "realme"
+    },
+    {
+     "id": "realme-6",
+     "name": "realme 6",
+     "specs": "128GB · كاميرا 64MP · شحن 30W",
+     "price": 145000,
+     "image": "img/phones/realme-6.jpg",
+     "tag": "",
+     "brand": "realme"
+    },
+    {
+     "id": "infinix-hot50",
+     "name": "Infinix HOT 50",
+     "specs": "128GB · شاشة 120Hz · 5000mAh",
+     "price": 135000,
+     "image": "img/phones/infinix-hot50.jpg",
+     "tag": "الأكثر مبيعاً",
+     "brand": "infinix"
+    },
+    {
+     "id": "infinix-note50",
+     "name": "Infinix Note 50 Pro",
+     "specs": "256GB · كاميرا 108MP · شحن 45W",
+     "price": 245000,
+     "image": "img/phones/infinix-note50.jpg",
+     "tag": "جديد",
+     "brand": "infinix"
+    },
+    {
+     "id": "infinix-hot60",
+     "name": "Infinix Hot 60 Pro+",
+     "specs": "256GB · شاشة منحنية · شحن 45W",
+     "price": 285000,
+     "image": "img/phones/infinix-hot60.jpg",
+     "tag": "",
+     "brand": "infinix"
+    },
+    {
+     "id": "tecno-camon50",
+     "name": "Tecno Camon 50",
+     "specs": "256GB · كاميرا 50MP · شحن 70W",
+     "price": 260000,
+     "image": "img/phones/tecno-camon50.jpg",
+     "tag": "جديد",
+     "brand": "tecno"
+    },
+    {
+     "id": "tecno-spark20",
+     "name": "Tecno Spark 20",
+     "specs": "128GB · شاشة 90Hz · 5000mAh",
+     "price": 118000,
+     "image": "img/phones/tecno-spark20.jpg",
+     "tag": "",
+     "brand": "tecno"
+    },
+    {
+     "id": "huawei-mate",
+     "name": "Huawei Mate 10",
+     "specs": "64GB · كاميرا Leica مزدوجة · شاشة 2K",
+     "price": 950000,
+     "image": "img/phones/huawei-mate.jpg",
+     "tag": "",
+     "brand": "huawei"
+    }
+   ]
+  },
+  {
+   "id": "accessories",
+   "name": "الإكسسوارات",
+   "tagline": "شواحن وسماعات وجرابات",
+   "icon": "🎧",
+   "products": [
+    {
+     "id": "acc-charger-gan",
+     "name": "شاحن GaN سريع 30W",
+     "specs": "منفذ USB-C · يشحن الآيفون والأندرويد",
+     "price": 38000,
+     "image": "img/acc/acc-charger-gan.jpg",
+     "tag": "جديد",
+     "group": "شواحن"
+    },
+    {
+     "id": "acc-charger-wall",
+     "name": "شاحن جداري أصلي 5W",
+     "specs": "منفذ USB-A · متوافق مع كل الأجهزة",
+     "price": 12000,
+     "image": "img/acc/acc-charger-wall.jpg",
+     "tag": "",
+     "group": "شواحن"
+    },
+    {
+     "id": "acc-charger-car",
+     "name": "شاحن سيارة مزدوج",
+     "specs": "منفذان USB · شحن سريع أثناء القيادة",
+     "price": 15000,
+     "image": "img/acc/acc-charger-car.jpg",
+     "tag": "",
+     "group": "شواحن"
+    },
+    {
+     "id": "acc-charger-cable",
+     "name": "كابل USB-C معزّز",
+     "specs": "طول ١.٥ متر · نقل بيانات وشحن 60W",
+     "price": 9000,
+     "image": "img/acc/acc-charger-cable.jpg",
+     "tag": "",
+     "group": "شواحن"
+    },
+    {
+     "id": "acc-audio-wireless",
+     "name": "سماعات بلوتوث لاسلكية",
+     "specs": "علبة شحن · عزل ضجيج · ٥ ساعات تشغيل",
+     "price": 45000,
+     "image": "img/acc/acc-audio-wireless.jpg",
+     "tag": "الأكثر مبيعاً",
+     "group": "سماعات لاسلكية"
+    },
+    {
+     "id": "acc-audio-anc",
+     "name": "هيدفون لاسلكي ANC",
+     "specs": "إلغاء ضجيج نشط · بطارية ٢٠ ساعة",
+     "price": 320000,
+     "image": "img/acc/acc-audio-anc.jpg",
+     "tag": "",
+     "group": "سماعات لاسلكية"
+    },
+    {
+     "id": "acc-audio-speaker",
+     "name": "مكبر صوت بلوتوث",
+     "specs": "مقاوم للماء · بطارية ١٢ ساعة",
+     "price": 85000,
+     "image": "img/acc/acc-audio-speaker.jpg",
+     "tag": "",
+     "group": "سماعات لاسلكية"
+    },
+    {
+     "id": "acc-audio-wired",
+     "name": "سماعات سلكية (جاك ٣.٥مم)",
+     "specs": "صوت نقي · مايك مدمج · طول ١.٢ متر",
+     "price": 8500,
+     "image": "img/acc/acc-audio-wired.jpg",
+     "tag": "",
+     "group": "سماعات سلكية"
+    },
+    {
+     "id": "acc-audio-handsfree",
+     "name": "هاندفري سلكي داخلي",
+     "specs": "تحكم بالمكالمات · جاك ٣.٥مم",
+     "price": 6500,
+     "image": "img/acc/acc-audio-handsfree.jpg",
+     "tag": "",
+     "group": "سماعات سلكية"
+    },
+    {
+     "id": "acc-case-general",
+     "name": "جراب حماية عام",
+     "specs": "يناسب أغلب الهواتف · ألوان متعددة",
+     "price": 11000,
+     "image": "img/acc/acc-case-general.jpg",
+     "tag": "",
+     "group": "جرابات"
+    },
+    {
+     "id": "acc-case-silicone",
+     "name": "جراب سيليكون آيفون",
+     "specs": "ملمس ناعم · حماية من الصدمات",
+     "price": 18000,
+     "image": "img/acc/acc-case-silicone.jpg",
+     "tag": "جديد",
+     "group": "جرابات"
+    },
+    {
+     "id": "acc-case-clear",
+     "name": "جراب شفاف مضاد للصدمات",
+     "specs": "حواف مرتفعة للكاميرا · شفاف",
+     "price": 14000,
+     "image": "img/acc/acc-case-clear.jpg",
+     "tag": "",
+     "group": "جرابات"
+    }
+   ]
+  },
+  {
    "id": "grocery",
    "name": "سوبرماركت",
    "tagline": "طازج يومياً من السوق",
