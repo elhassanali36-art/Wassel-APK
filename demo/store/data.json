@@ -1,0 +1,563 @@
+{
+ "store": {
+  "name": "متجر النخبة",
+  "tagline": "كل ما تحتاجه في مكان واحد — أسعار بالجنيه السوداني",
+  "logo": "logo.svg",
+  "phone": "+249 90 000 0000",
+  "currency": "SDG"
+ },
+ "categories": [
+  {
+   "id": "grocery",
+   "name": "سوبرماركت",
+   "tagline": "طازج يومياً من السوق",
+   "icon": "🛒",
+   "products": [
+    {
+     "id": "tomato",
+     "name": "طماطم طازجة",
+     "specs": "كيلو · مزارع الجزيرة",
+     "price": 2500,
+     "image": "img/grocery/tomato.jpg",
+     "tag": ""
+    },
+    {
+     "id": "banana",
+     "name": "موز بلدي",
+     "specs": "كيلو · ناضج",
+     "price": 1800,
+     "image": "img/grocery/banana.jpg",
+     "tag": ""
+    },
+    {
+     "id": "rice",
+     "name": "أرز مصري",
+     "specs": "٥ كجم · حبة طويلة",
+     "price": 12500,
+     "image": "img/grocery/rice.jpg",
+     "tag": ""
+    },
+    {
+     "id": "oil",
+     "name": "زيت ذرة",
+     "specs": "١.٨ لتر",
+     "price": 8900,
+     "image": "img/grocery/oil.jpg",
+     "tag": ""
+    },
+    {
+     "id": "sugar",
+     "name": "سكر ناعم",
+     "specs": "٢ كجم",
+     "price": 5600,
+     "image": "img/grocery/sugar.jpg",
+     "tag": ""
+    },
+    {
+     "id": "milk",
+     "name": "حليب كامل الدسم",
+     "specs": "١ لتر",
+     "price": 3100,
+     "image": "img/grocery/milk.jpg",
+     "tag": ""
+    },
+    {
+     "id": "eggs",
+     "name": "بيض مائدة",
+     "specs": "طبق ٣٠ بيضة",
+     "price": 9800,
+     "image": "img/grocery/eggs.jpg",
+     "tag": ""
+    },
+    {
+     "id": "water",
+     "name": "مياه معدنية",
+     "specs": "٦ × ١.٥ لتر",
+     "price": 4200,
+     "image": "img/grocery/water.jpg",
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "id": "pharmacy",
+   "name": "صيدلية",
+   "tagline": "أدوية ومستلزمات طبية",
+   "icon": "💊",
+   "products": [
+    {
+     "id": "paracetamol",
+     "name": "باراسيتامول ٥٠٠مجم",
+     "specs": "٢٠ قرصاً",
+     "price": 1200,
+     "image": "img/pharmacy/paracetamol.jpg",
+     "tag": ""
+    },
+    {
+     "id": "vitc",
+     "name": "فيتامين C ١٠٠٠مجم",
+     "specs": "٣٠ قرصاً فوار",
+     "price": 4500,
+     "image": "img/pharmacy/vitc.jpg",
+     "tag": ""
+    },
+    {
+     "id": "mask",
+     "name": "كمامات طبية",
+     "specs": "علبة ٥٠ كمامة",
+     "price": 2800,
+     "image": "img/pharmacy/mask.jpg",
+     "tag": ""
+    },
+    {
+     "id": "bp",
+     "name": "جهاز قياس الضغط",
+     "specs": "رقمي · للذراع",
+     "price": 32000,
+     "image": "img/pharmacy/bp.jpg",
+     "tag": ""
+    },
+    {
+     "id": "thermo",
+     "name": "ميزان حرارة رقمي",
+     "specs": "قياس سريع",
+     "price": 6500,
+     "image": "img/pharmacy/thermo.jpg",
+     "tag": ""
+    },
+    {
+     "id": "antiseptic",
+     "name": "مطهر جروح",
+     "specs": "٥٠٠ مل",
+     "price": 3400,
+     "image": "img/pharmacy/antiseptic.jpg",
+     "tag": ""
+    },
+    {
+     "id": "bandage",
+     "name": "لاصق جروح",
+     "specs": "علبة ٤٠ قطعة",
+     "price": 1500,
+     "image": "img/pharmacy/bandage.jpg",
+     "tag": ""
+    },
+    {
+     "id": "gloves",
+     "name": "قفازات فحص",
+     "specs": "علبة ١٠٠",
+     "price": 3900,
+     "image": "img/pharmacy/gloves.jpg",
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "id": "restaurant",
+   "name": "مطاعم",
+   "tagline": "طلبات ساخنة تصلك خلال ٣٠ دقيقة",
+   "icon": "🍽️",
+   "products": [
+    {
+     "id": "burger",
+     "name": "برجر لحم مزدوج",
+     "specs": "مع بطاطس وجبنة",
+     "price": 7500,
+     "image": "img/restaurant/burger.jpg",
+     "tag": ""
+    },
+    {
+     "id": "pizza",
+     "name": "بيتزا عائلية",
+     "specs": "٨ قطع · جبنة وخضار",
+     "price": 11000,
+     "image": "img/restaurant/pizza.jpg",
+     "tag": ""
+    },
+    {
+     "id": "shawarma",
+     "name": "شاورما دجاج",
+     "specs": "ساندويتش مع صوص",
+     "price": 3800,
+     "image": "img/restaurant/shawarma.jpg",
+     "tag": ""
+    },
+    {
+     "id": "falafel",
+     "name": "فلافل سودانية",
+     "specs": "٦ قطع مع طماطم",
+     "price": 2200,
+     "image": "img/restaurant/falafel.jpg",
+     "tag": ""
+    },
+    {
+     "id": "kabsa",
+     "name": "كبسة لحم",
+     "specs": "وجبة كاملة",
+     "price": 12500,
+     "image": "img/restaurant/kabsa.jpg",
+     "tag": ""
+    },
+    {
+     "id": "tea",
+     "name": "شاي بالحليب",
+     "specs": "كوب كبير",
+     "price": 900,
+     "image": "img/restaurant/tea.jpg",
+     "tag": ""
+    },
+    {
+     "id": "juice",
+     "name": "عصير مانجو طازج",
+     "specs": "٤٠٠ مل",
+     "price": 2600,
+     "image": "img/restaurant/juice.jpg",
+     "tag": ""
+    },
+    {
+     "id": "cake",
+     "name": "كيك شوكولاتة",
+     "specs": "قطعة كبيرة",
+     "price": 3200,
+     "image": "img/restaurant/cake.jpg",
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "id": "electronics",
+   "name": "إلكترونيات وأجهزة منزلية",
+   "tagline": "ضمان سنة على كل جهاز",
+   "icon": "📺",
+   "products": [
+    {
+     "id": "tv",
+     "name": "تلفزيون سمارت ٥٥ بوصة",
+     "specs": "4K · أندرويد",
+     "price": 385000,
+     "image": "img/electronics/tv.jpg",
+     "tag": ""
+    },
+    {
+     "id": "laptop",
+     "name": "لابتوب ١٥ بوصة",
+     "specs": "Core i5 · 16GB · SSD",
+     "price": 690000,
+     "image": "img/electronics/laptop.jpg",
+     "tag": ""
+    },
+    {
+     "id": "headphones",
+     "name": "هيدفون لاسلكي",
+     "specs": "عزل ضجيج",
+     "price": 68000,
+     "image": "img/electronics/headphones.jpg",
+     "tag": ""
+    },
+    {
+     "id": "camera",
+     "name": "كاميرا رقمية",
+     "specs": "٢٤ ميجابكسل",
+     "price": 420000,
+     "image": "img/electronics/camera.jpg",
+     "tag": ""
+    },
+    {
+     "id": "ac",
+     "name": "مكيف سبليت ١.٥ طن",
+     "specs": "تبريد سريع",
+     "price": 960000,
+     "image": "img/electronics/ac.jpg",
+     "tag": ""
+    },
+    {
+     "id": "fridge",
+     "name": "ثلاجة ١٦ قدم",
+     "specs": "نوفروست",
+     "price": 780000,
+     "image": "img/electronics/fridge.jpg",
+     "tag": ""
+    },
+    {
+     "id": "iron",
+     "name": "مكواة بخار",
+     "specs": "قاعدة سيراميك",
+     "price": 42000,
+     "image": "img/electronics/iron.jpg",
+     "tag": ""
+    },
+    {
+     "id": "blender",
+     "name": "خلاط كهربائي",
+     "specs": "٣ سرعات",
+     "price": 56000,
+     "image": "img/electronics/blender.jpg",
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "id": "fashion",
+   "name": "أزياء وملابس",
+   "tagline": "مقاسات لكل الأعمار",
+   "icon": "👕",
+   "products": [
+    {
+     "id": "shirt",
+     "name": "قميص قطن كلاسيك",
+     "specs": "أبيض · L",
+     "price": 18000,
+     "image": "img/fashion/shirt.jpg",
+     "tag": ""
+    },
+    {
+     "id": "jeans",
+     "name": "بنطال جينز",
+     "specs": "مقاسات ٣٠-٤٠",
+     "price": 26000,
+     "image": "img/fashion/jeans.jpg",
+     "tag": ""
+    },
+    {
+     "id": "dress",
+     "name": "فستان صيفي",
+     "specs": "قطن مطرز",
+     "price": 34000,
+     "image": "img/fashion/dress.jpg",
+     "tag": ""
+    },
+    {
+     "id": "hijab",
+     "name": "طقم حجاب",
+     "specs": "٣ قطع بألوان",
+     "price": 9500,
+     "image": "img/fashion/hijab.jpg",
+     "tag": ""
+    },
+    {
+     "id": "jacket",
+     "name": "جاكيت شتوي",
+     "specs": "معزول ضد الماء",
+     "price": 38000,
+     "image": "img/fashion/jacket.jpg",
+     "tag": ""
+    },
+    {
+     "id": "sneakers",
+     "name": "حذاء رياضي",
+     "specs": "مقاسات ٣٩-٤٥",
+     "price": 42000,
+     "image": "img/fashion/sneakers.jpg",
+     "tag": ""
+    },
+    {
+     "id": "wallet",
+     "name": "محفظة جلد",
+     "specs": "جيب متعدد",
+     "price": 15000,
+     "image": "img/fashion/wallet.jpg",
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "id": "beauty",
+   "name": "عطور وتجميل",
+   "tagline": "أصلية ومضمونة",
+   "icon": "💄",
+   "products": [
+    {
+     "id": "perfume",
+     "name": "عطر شرقي ١٠٠مل",
+     "specs": "ثبات طويل",
+     "price": 52000,
+     "image": "img/beauty/perfume.jpg",
+     "tag": ""
+    },
+    {
+     "id": "lipstick",
+     "name": "أحمر شفاه مات",
+     "specs": "درجات ثابتة",
+     "price": 7800,
+     "image": "img/beauty/lipstick.jpg",
+     "tag": ""
+    },
+    {
+     "id": "shampoo",
+     "name": "شامبو ضد التساقط",
+     "specs": "٤٠٠ مل",
+     "price": 9500,
+     "image": "img/beauty/shampoo.jpg",
+     "tag": ""
+    },
+    {
+     "id": "soap",
+     "name": "صابون طبيعي",
+     "specs": "٣ قطع",
+     "price": 3200,
+     "image": "img/beauty/soap.jpg",
+     "tag": ""
+    },
+    {
+     "id": "deodorant",
+     "name": "مزيل عرق",
+     "specs": "٥٠ مل",
+     "price": 5400,
+     "image": "img/beauty/deodorant.jpg",
+     "tag": ""
+    },
+    {
+     "id": "palette",
+     "name": "باليت ظلال",
+     "specs": "١٢ لوناً",
+     "price": 15500,
+     "image": "img/beauty/palette.jpg",
+     "tag": ""
+    },
+    {
+     "id": "brush",
+     "name": "طقم فرش مكياج",
+     "specs": "١٢ فرشاة",
+     "price": 11500,
+     "image": "img/beauty/brush.jpg",
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "name": "مستلزمات منزلية",
+   "tagline": "كل ما يحتاجه البيت",
+   "icon": "🏠",
+   "products": [
+    {
+     "id": "cookware",
+     "name": "طقم أدوات مطبخ",
+     "specs": "١٠ قطع stanلس ستيل",
+     "price": 68000,
+     "image": "img/home/cookware.jpg",
+     "tag": ""
+    },
+    {
+     "id": "glasses",
+     "name": "كاسات مياه",
+     "specs": "٦ كاسات",
+     "price": 7800,
+     "image": "img/home/glasses.jpg",
+     "tag": ""
+    },
+    {
+     "id": "knife",
+     "name": "سكين مطبخ",
+     "specs": "فولاذ ألماني",
+     "price": 9500,
+     "image": "img/home/knife.jpg",
+     "tag": ""
+    },
+    {
+     "id": "pan",
+     "name": "مقلاة غير لاصقة",
+     "specs": "٢٨ سم",
+     "price": 14500,
+     "image": "img/home/pan.jpg",
+     "tag": ""
+    },
+    {
+     "id": "mattress",
+     "name": "مرتبة سرير",
+     "specs": "١٦٠×٢٠٠",
+     "price": 185000,
+     "image": "img/home/mattress.jpg",
+     "tag": ""
+    },
+    {
+     "id": "carpet",
+     "name": "سجادة صلاة",
+     "specs": "مخمل · مقاس كبير",
+     "price": 16000,
+     "image": "img/home/carpet.jpg",
+     "tag": ""
+    },
+    {
+     "id": "lamp",
+     "name": "مصباح طاولة",
+     "specs": "LED · إضاءة دافئة",
+     "price": 9800,
+     "image": "img/home/lamp.jpg",
+     "tag": ""
+    },
+    {
+     "id": "vacuum",
+     "name": "مكنسة كهربائية",
+     "specs": "٢٠٠٠ واط",
+     "price": 96000,
+     "image": "img/home/vacuum.jpg",
+     "tag": ""
+    }
+   ]
+  },
+  {
+   "id": "kids",
+   "name": "أطفال وألعاب",
+   "tagline": "آمنة ومختبرة",
+   "icon": "🧸",
+   "products": [
+    {
+     "id": "doll",
+     "name": "دمية أطفال",
+     "specs": "٤٠ سم",
+     "price": 14500,
+     "image": "img/kids/doll.jpg",
+     "tag": ""
+    },
+    {
+     "id": "lego",
+     "name": "مكعبات بناء",
+     "specs": "٣٠٠ قطعة",
+     "price": 18500,
+     "image": "img/kids/lego.jpg",
+     "tag": ""
+    },
+    {
+     "id": "stroller",
+     "name": "عربة أطفال",
+     "specs": "قابلة للطي",
+     "price": 120000,
+     "image": "img/kids/stroller.jpg",
+     "tag": ""
+    },
+    {
+     "id": "formula",
+     "name": "حليب أطفال",
+     "specs": "٤٠٠ جم",
+     "price": 13800,
+     "image": "img/kids/formula.jpg",
+     "tag": ""
+    },
+    {
+     "id": "bike",
+     "name": "دراجة أطفال",
+     "specs": "١٢ بوصة",
+     "price": 68000,
+     "image": "img/kids/bike.jpg",
+     "tag": ""
+    },
+    {
+     "id": "puzzle",
+     "name": "بازل تعليمي",
+     "specs": "١٠٠ قطعة",
+     "price": 6500,
+     "image": "img/kids/puzzle.jpg",
+     "tag": ""
+    },
+    {
+     "id": "ball",
+     "name": "كرة قدم",
+     "specs": "مقاس ٤",
+     "price": 7200,
+     "image": "img/kids/ball.jpg",
+     "tag": ""
+    }
+   ]
+  }
+ ]
+}

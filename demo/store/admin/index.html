@@ -1,0 +1,381 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>لوحة إدارة المتجر</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0b1512;--card:#12211c;--line:#1f3a31;--gold:#E7C46A;--fg:#eaf2ee;--mut:#93a8a0;--bad:#e2685f}
+body{background:var(--bg);color:var(--fg);font-family:"Segoe UI",Tahoma,sans-serif;line-height:1.6;padding-bottom:60px}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:8px 0 4px}
+h2{font-size:16px;margin:0 0 10px;color:var(--gold)}
+p.hint{color:var(--mut);font-size:13px;margin-bottom:14px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+label{display:block;font-size:12px;color:var(--mut);margin:8px 0 4px}
+input,select,textarea{width:100%;background:#0e1b17;border:1px solid var(--line);color:var(--fg);
+ border-radius:10px;padding:10px;font-size:14px;font-family:inherit}
+textarea{min-height:64px;resize:vertical}
+.row{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.row3{display:grid;gap:10px;grid-template-columns:1fr 1fr 1fr}
+.btn{background:var(--gold);color:#0b1512;border:0;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:14px}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn.bad{background:transparent;color:var(--bad);border:1px solid var(--bad)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.tab{padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;cursor:pointer;background:var(--card)}
+.tab.on{background:var(--gold);color:#0b1512;border-color:var(--gold);font-weight:700}
+.item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin-bottom:8px;background:#0e1b17}
+.item img{width:44px;height:44px;object-fit:cover;border-radius:8px;background:#fff}
+.item .g{flex:1;font-size:14px}
+.item .g small{display:block;color:var(--mut);font-size:12px}
+.item button{background:none;border:1px solid var(--line);color:var(--mut);border-radius:8px;padding:4px 8px;cursor:pointer;font-size:12px}
+.status{font-size:13px;padding:10px 12px;border-radius:10px;margin-top:10px;display:none}
+.status.ok{display:block;background:rgba(231,196,106,.12);color:var(--gold)}
+.status.err{display:block;background:rgba(226,104,95,.12);color:var(--bad)}
+</style></head><body><div class="wrap">
+<h1>لوحة إدارة المتجر</h1>
+<p class="hint">التعديلات تُحفظ على جهازك أثناء العمل، ولا تظهر للزوار إلا بعد الضغط على «نشر على الموقع».</p>
+
+<div class="box">
+  <h2>١. الربط بالمستودع</h2>
+  <label>رمز GitHub (صلاحية repo)</label>
+  <input id="token" type="password" placeholder="ghp_..." autocomplete="off"/>
+  <div class="row">
+    <div><label>المستودع</label><input id="repo" value="elhassanali36-art/Wassel-APK"/></div>
+    <div><label>الفرع</label><input id="branch" value="main"/></div>
+  </div>
+  <div class="row">
+    <div><label>مسار ملف البيانات</label><input id="path" value="demo/store/data.json"/></div>
+    <div><label>مجلد الصور</label><input id="imgdir" value="demo/store/uploads"/></div>
+  </div>
+  <div class="actions">
+    <button class="btn" id="load">تحميل البيانات من الموقع</button>
+    <button class="btn ghost" id="save">حفظ الربط على الجهاز</button>
+  </div>
+  <div class="status" id="st1"></div>
+</div>
+
+<div class="box">
+  <h2>٢. اسم المتجر واللوجو</h2>
+  <label>اسم المتجر</label><input id="sName"/>
+  <label>الوصف المختصر</label><input id="sTag"/>
+  <label>الهاتف</label><input id="sPhone"/>
+  <div class="row">
+    <div><label>رابط اللوجو الحالي</label><input id="sLogo"/></div>
+    <div><label>أو ارفع لوجو جديد (PNG/JPG/SVG)</label><input id="logoFile" type="file" accept="image/*"/></div>
+  </div>
+  <div class="actions"><button class="btn ghost" id="logoUpload">رفع اللوجو</button></div>
+  <div class="status" id="st2"></div>
+</div>
+
+<div class="box">
+  <h2>٣. الفئات</h2>
+  <div class="tabs" id="cats"></div>
+  <div class="row3">
+    <div><label>اسم الفئة</label><input id="cName" placeholder="مثال: سوبرماركت"/></div>
+    <div><label>الرمز</label><input id="cIcon" placeholder="🛒"/></div>
+    <div><label>معرّف لاتيني</label><input id="cId" placeholder="grocery"/></div>
+  </div>
+  <div class="actions">
+    <button class="btn" id="addCat">إضافة فئة</button>
+    <button class="btn ghost" id="renameCat">تسمية الفئة المحددة</button>
+    <button class="btn bad" id="delCat">حذف الفئة المحددة</button>
+  </div>
+  <div class="status" id="st3"></div>
+</div>
+
+<div class="box">
+  <h2>٤. المنتجات</h2>
+  <p class="hint" id="prodFor">اختر فئة أولاً من الأعلى.</p>
+  <div id="list"></div>
+  <div class="row">
+    <div><label>اسم المنتج</label><input id="pName"/></div>
+    <div><label>المواصفات</label><input id="pSpecs"/></div>
+  </div>
+  <div class="row3">
+    <div><label>السعر (ج.س)</label><input id="pPrice" type="number" min="0"/></div>
+    <div><label>شارة (جديد / الأكثر مبيعاً)</label><input id="pTag"/></div>
+    <div><label>مجموعة فرعية (اختياري)</label><input id="pGroup"/></div>
+  </div>
+  <label>رابط الصورة أو ارفع صورة</label>
+  <input id="pImg" placeholder="img/grocery/tomato.jpg"/>
+  <input id="pFile" type="file" accept="image/*"/>
+  <div class="actions">
+    <button class="btn" id="addProd">إضافة منتج</button>
+    <button class="btn ghost" id="updateProd" disabled>تحديث المنتج المحدد</button>
+    <button class="btn bad" id="delProd" disabled>حذف المنتج المحدد</button>
+  </div>
+  <div class="status" id="st4"></div>
+</div>
+
+<div class="box">
+  <h2>٥. النشر</h2>
+  <p class="hint">يرفع ملف البيانات (والصور الجديدة) إلى GitHub، ويظهر الموقع بعد دقيقة تقريباً.</p>
+  <div class="actions">
+    <button class="btn" id="publish">نشر على الموقع</button>
+    <button class="btn ghost" id="exportBtn">تنزيل نسخة احتياطية</button>
+    <a class="btn ghost" href="../index.html" target="_blank">معاينة المتجر</a>
+  </div>
+  <div class="status" id="st5"></div>
+</div>
+</div>
+<script>
+const $ = (s) => document.querySelector(s);
+const CFG_KEY = "souq_admin_cfg_v1";
+const DATA_KEY = "souq_admin_data_v1";
+let DATA = null, selCat = "", selProd = "", sha = null;
+
+const cfg = () => ({
+  token: $("#token").value.trim(), repo: $("#repo").value.trim(),
+  branch: $("#branch").value.trim(), path: $("#path").value.trim(),
+  imgdir: $("#imgdir").value.trim()
+});
+const show = (id, msg, ok = true) => {
+  const el = $(id); el.className = "status " + (ok ? "ok" : "err");
+  el.textContent = msg; setTimeout(() => { el.className = "status"; }, 6000);
+};
+function persist() {
+  try { localStorage.setItem(DATA_KEY, JSON.stringify(DATA)); } catch (e) {}
+}
+function restore() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CFG_KEY) || "null");
+    if (c) { $("#token").value = c.token || ""; $("#repo").value = c.repo || $("#repo").value;
+      $("#branch").value = c.branch || "main"; $("#path").value = c.path || $("#path").value;
+      $("#imgdir").value = c.imgdir || $("#imgdir").value; }
+    const d = JSON.parse(localStorage.getItem(DATA_KEY) || "null");
+    if (d && d.categories) DATA = d;
+  } catch (e) {}
+}
+function fillStore() {
+  DATA.store = DATA.store || {};
+  $("#sName").value = DATA.store.name || "";
+  $("#sTag").value = DATA.store.tagline || "";
+  $("#sPhone").value = DATA.store.phone || "";
+  $("#sLogo").value = DATA.store.logo || "";
+}
+function readStore() {
+  DATA.store = DATA.store || {};
+  DATA.store.name = $("#sName").value.trim();
+  DATA.store.tagline = $("#sTag").value.trim();
+  DATA.store.phone = $("#sPhone").value.trim();
+  DATA.store.logo = $("#sLogo").value.trim();
+  persist();
+}
+function renderCats() {
+  $("#cats").innerHTML = (DATA.categories || []).map(c =>
+    `<div class="tab ${c.id === selCat ? "on" : ""}" data-id="${c.id}">${c.icon || ""} ${c.name} (${c.products.length})</div>`
+  ).join("") || '<p class="hint">لا توجد فئات بعد.</p>';
+  const cat = DATA.categories.find(c => c.id === selCat);
+  $("#prodFor").textContent = cat ? `منتجات فئة: ${cat.name}` : "اختر فئة أولاً من الأعلى.";
+  renderList();
+}
+function renderList() {
+  const cat = DATA.categories.find(c => c.id === selCat);
+  if (!cat) { $("#list").innerHTML = ""; return; }
+  $("#list").innerHTML = cat.products.map(p => `
+    <div class="item" data-id="${p.id}">
+      ${p.image ? `<img src="../${p.image}" alt=""/>` : ""}
+      <div class="g">${p.name}<small>${p.specs || ""} · ${Number(p.price).toLocaleString("en-US")} ج.س</small></div>
+      <button data-act="edit">تعديل</button>
+    </div>`).join("") || '<p class="hint">لا توجد منتجات في هذه الفئة.</p>';
+}
+function loadProduct(p) {
+  selProd = p.id;
+  $("#pName").value = p.name || ""; $("#pSpecs").value = p.specs || "";
+  $("#pPrice").value = p.price || 0; $("#pTag").value = p.tag || "";
+  $("#pGroup").value = p.group || ""; $("#pImg").value = p.image || "";
+  $("#updateProd").disabled = false; $("#delProd").disabled = false;
+}
+function pickCat(id) {
+  selCat = id; selProd = "";
+  $("#updateProd").disabled = true; $("#delProd").disabled = true;
+  renderCats();
+}
+</script>
+<script>
+const api = (p, opt = {}) => fetch("https://api.github.com" + p, {
+  ...opt,
+  headers: {
+    Authorization: "Bearer " + cfg().token,
+    Accept: "application/vnd.github+json",
+    "Content-Type": "application/json",
+    ...(opt.headers || {})
+  }
+});
+const b64 = (str) => btoa(unescape(encodeURIComponent(str)));
+const fileB64 = (f) => new Promise((res, rej) => {
+  const r = new FileReader();
+  r.onload = () => res(String(r.result).split(",")[1]);
+  r.onerror = rej; r.readAsDataURL(f);
+});
+
+async function loadData() {
+  $("#save").click();
+  if (!cfg().token) return show("#st1", "أدخل رمز GitHub أولاً.", false);
+  show("#st1", "جارٍ التحميل…");
+  try {
+    const r = await api(`/repos/${cfg().repo}/contents/${cfg().path}?ref=${cfg().branch}`);
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.message || "فشل التحميل");
+    DATA = JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g, "")))));
+    sha = j.sha;
+    fillStore(); pickCat((DATA.categories[0] || {}).id || "");
+    show("#st1", "تم التحميل ✓ (" + DATA.categories.length + " فئة)");
+  } catch (e) { show("#st1", "خطأ: " + e.message, false); }
+}
+
+async function uploadFile(file, nameHint) {
+  const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
+  const name = (nameHint || Date.now()) + "." + ext;
+  const path = cfg().imgdir + "/" + name;
+  let existing = null;
+  try {
+    const r = await api(`/repos/${cfg().repo}/contents/${path}?ref=${cfg().branch}`);
+    if (r.ok) existing = (await r.json()).sha;
+  } catch (e) {}
+  const body = { message: "upload " + path, content: await fileB64(file), branch: cfg().branch };
+  if (existing) body.sha = existing;
+  const r = await api(`/repos/${cfg().repo}/contents/${path}`, { method: "PUT", body: JSON.stringify(body) });
+  if (!r.ok) throw new Error("فشل رفع الصورة");
+  return path;
+}
+
+$("#save").addEventListener("click", () => {
+  localStorage.setItem(CFG_KEY, JSON.stringify(cfg())); show("#st1", "تم حفظ الربط على جهازك.");
+});
+$("#load").addEventListener("click", loadData);
+$("#logoUpload").addEventListener("click", async () => {
+  const f = $("#logoFile").files[0];
+  if (!f) return show("#st2", "اختر ملف اللوجو أولاً.", false);
+  if (!cfg().token) return show("#st2", "أدخل رمز GitHub وأحفظ الربط أولاً.", false);
+  show("#st2", "جارٍ الرفع…");
+  try {
+    const p = await uploadFile(f, "logo");
+    $("#sLogo").value = p; readStore();
+    show("#st2", "تم رفع اللوجو ✓ اضغط «نشر على الموقع» لظهوره.");
+  } catch (e) { show("#st2", "خطأ: " + e.message, false); }
+});
+
+$("#addCat").addEventListener("click", () => {
+  const name = $("#cName").value.trim(), id = $("#cId").value.trim();
+  if (!name || !/^[a-z0-9-]{2,30}$/.test(id)) return show("#st3", "اكتب اسماً ومعرّفاً لاتينياً (حروف صغيرة وأرقام).", false);
+  if (DATA.categories.some(c => c.id === id)) return show("#st3", "المعرّف مستخدم.", false);
+  DATA.categories.push({ id, name, icon: $("#cIcon").value.trim() || "🛍️", tagline: "", products: [] });
+  persist(); pickCat(id); show("#st3", "أُضيفت الفئة ✓");
+});
+$("#renameCat").addEventListener("click", () => {
+  const cat = DATA.categories.find(c => c.id === selCat);
+  if (!cat) return show("#st3", "اختر فئة أولاً.", false);
+  const name = $("#cName").value.trim(), icon = $("#cIcon").value.trim();
+  if (name) cat.name = name;
+  if (icon) cat.icon = icon;
+  persist(); renderCats(); show("#st3", "تم تحديث الفئة ✓");
+});
+$("#delCat").addEventListener("click", () => {
+  const cat = DATA.categories.find(c => c.id === selCat);
+  if (!cat) return show("#st3", "اختر فئة أولاً.", false);
+  if (!confirm(`حذف فئة «${cat.name}» و${cat.products.length} منتجاً؟`)) return;
+  DATA.categories = DATA.categories.filter(c => c.id !== selCat);
+  persist(); pickCat((DATA.categories[0] || {}).id || ""); show("#st3", "حُذفت الفئة.");
+});
+$("#cats").addEventListener("click", (e) => {
+  const t = e.target.closest(".tab"); if (!t) return;
+  pickCat(t.dataset.id);
+});
+$("#list").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-act='edit']"); if (!b) return;
+  const row = b.closest(".item");
+  const cat = DATA.categories.find(c => c.id === selCat);
+  const p = cat.products.find(x => x.id === row.dataset.id);
+  if (p) loadProduct(p);
+});
+</script>
+<script>
+function newId(name) {
+  return (name || "item").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+    .slice(0, 24) || ("p" + Date.now());
+}
+$("#addProd").addEventListener("click", async () => {
+  const cat = DATA.categories.find(c => c.id === selCat);
+  if (!cat) return show("#st4", "اختر فئة أولاً.", false);
+  const name = $("#pName").value.trim(), price = Number($("#pPrice").value);
+  if (!name || !(price >= 0)) return show("#st4", "اكتب اسم المنتج والسعر.", false);
+  let image = $("#pImg").value.trim();
+  const f = $("#pFile").files[0];
+  if (f && cfg().token) {
+    try { show("#st4", "جارٍ رفع الصورة…"); image = await uploadFile(f, newId(name)); }
+    catch (e) { return show("#st4", "فشل رفع الصورة: " + e.message, false); }
+  }
+  cat.products.unshift({
+    id: newId(name) + "-" + Date.now().toString().slice(-4), name,
+    specs: $("#pSpecs").value.trim(), price, tag: $("#pTag").value.trim(),
+    group: $("#pGroup").value.trim(), image
+  });
+  persist(); renderCats(); show("#st4", "أُضيف المنتج ✓");
+});
+$("#updateProd").addEventListener("click", () => {
+  const cat = DATA.categories.find(c => c.id === selCat);
+  const p = cat && cat.products.find(x => x.id === selProd);
+  if (!p) return show("#st4", "اختر منتجاً من القائمة.", false);
+  p.name = $("#pName").value.trim() || p.name;
+  p.specs = $("#pSpecs").value.trim();
+  p.price = Number($("#pPrice").value) || 0;
+  p.tag = $("#pTag").value.trim();
+  p.group = $("#pGroup").value.trim();
+  p.image = $("#pImg").value.trim() || p.image;
+  persist(); renderCats(); show("#st4", "تم تحديث المنتج ✓");
+});
+$("#delProd").addEventListener("click", () => {
+  const cat = DATA.categories.find(c => c.id === selCat);
+  if (!cat) return;
+  const p = cat.products.find(x => x.id === selProd);
+  if (!p || !confirm(`حذف «${p.name}»؟`)) return;
+  cat.products = cat.products.filter(x => x.id !== selProd);
+  selProd = ""; $("#updateProd").disabled = true; $("#delProd").disabled = true;
+  persist(); renderCats(); show("#st4", "حُذف المنتج.");
+});
+$("#pFile").addEventListener("change", () => {
+  const f = $("#pFile").files[0];
+  if (f) show("#st4", "الصورة ستُرفع مع الحفظ.");
+});
+
+$("#publish").addEventListener("click", async () => {
+  if (!cfg().token) return show("#st5", "أدخل رمز GitHub أولاً.", false);
+  readStore();
+  show("#st5", "جارٍ النشر…");
+  try {
+    let cur = null;
+    try {
+      const r = await api(`/repos/${cfg().repo}/contents/${cfg().path}?ref=${cfg().branch}`);
+      if (r.ok) cur = (await r.json()).sha;
+    } catch (e) {}
+    const body = {
+      message: "Update store data from the admin panel",
+      content: b64(JSON.stringify(DATA, null, 1)),
+      branch: cfg().branch
+    };
+    if (cur) body.sha = cur;
+    const r = await api(`/repos/${cfg().repo}/contents/${cfg().path}`, { method: "PUT", body: JSON.stringify(body) });
+    if (!r.ok) throw new Error((await r.json()).message || "فشل النشر");
+    show("#st5", "تم النشر ✓ سيظهر الموقع بعد ~دقيقة.");
+  } catch (e) { show("#st5", "خطأ: " + e.message, false); }
+});
+$("#exportBtn").addEventListener("click", () => {
+  readStore();
+  const blob = new Blob([JSON.stringify(DATA, null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "data.json"; a.click();
+});
+
+(async function init() {
+  restore();
+  if (!DATA) {
+    try {
+      const r = await fetch("../data.json?ts=" + Date.now());
+      DATA = await r.json();
+    } catch (e) { DATA = { store: {}, categories: [] }; }
+  }
+  fillStore(); pickCat((DATA.categories[0] || {}).id || "");
+})();
+</script></body></html>
