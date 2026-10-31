@@ -1,0 +1,99 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>صيدلية — سوق السودان الكبير</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0b1220;--card:#141d2e;--line:#25314a;--ink:#eef3fb;--mut:#93a3bd;--gold:#e7c46a;--green:#1f6b57}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:18px}
+header.top{background:linear-gradient(135deg,#0f2f27,#12203a);border-bottom:1px solid var(--line);padding:26px 18px}
+.brand{display:flex;align-items:center;gap:12px;max-width:1180px;margin:0 auto}
+.logo{width:46px;height:46px;border-radius:13px;background:var(--gold);color:#20180a;display:grid;place-items:center;font-weight:800;font-size:22px}
+h1{font-size:22px;letter-spacing:.2px}
+.tag{color:var(--mut);font-size:13px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+input[type=search],select{background:#0f1829;border:1px solid var(--line);color:var(--ink);padding:10px 14px;border-radius:11px;font-size:14px;font-family:inherit}
+input[type=search]{flex:1;min-width:200px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
+.chip{background:#101a2b;border:1px solid var(--line);padding:7px 13px;border-radius:999px;font-size:13px;color:var(--mut);cursor:pointer}
+.chip.on{background:rgba(231,196,106,.14);border-color:var(--gold);color:var(--gold)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:4/3;background:#fff;display:grid;place-items:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.name{font-weight:700;font-size:15px}
+.spec{color:var(--mut);font-size:12.5px;min-height:34px}
+.price{color:var(--gold);font-weight:800;font-size:16px;margin-top:auto}
+.price s{color:#6b7a94;font-weight:500;font-size:12px;margin-inline-start:8px}
+.btn{margin-top:10px;background:var(--green);color:#fff;border:0;padding:9px;border-radius:10px;font-family:inherit;font-weight:700;font-size:13.5px}
+.cat-card .thumb{aspect-ratio:16/9}
+.cat-card .body{padding:14px}
+.cat-name{font-size:17px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.count{color:var(--mut);font-size:13px}
+footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 18px;color:var(--mut);font-size:12px}
+footer details{max-width:1180px;margin:0 auto}
+footer ul{margin:8px 0 0 18px}
+footer li{margin:3px 0}
+.crumb{color:var(--mut);font-size:13px;margin:14px 0 0}
+.empty{color:var(--mut);padding:26px;text-align:center}
+</style></head><body><header class="top"><div class="brand"><div class="logo">💊</div>
+<div><h1>صيدلية</h1><div class="tag">أدوية ومستلزمات طبية</div></div></div></header>
+<div class="wrap"><p class="crumb"><a href="../">← كل الأقسام</a> · 8 منتجاً</p>
+<div class="bar"><input type="search" id="q" placeholder="ابحث في صيدلية…">
+<select id="sort"><option value="def">الترتيب الافتراضي</option><option value="asc">السعر: الأقل أولاً</option>
+<option value="desc">السعر: الأعلى أولاً</option></select></div>
+<div class="grid" id="grid"><article class="card" data-name="باراسيتامول ٥٠٠مجم" data-price="1200">
+  <div class="thumb"><img src="../img/pharmacy/paracetamol.jpg" alt="باراسيتامول ٥٠٠مجم" loading="lazy"></div>
+  <div class="body"><div class="name">باراسيتامول ٥٠٠مجم</div>
+  <div class="spec">٢٠ قرصاً</div>
+  <div class="price">1,200 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="فيتامين C ١٠٠٠مجم" data-price="4500">
+  <div class="thumb"><img src="../img/pharmacy/vitc.jpg" alt="فيتامين C ١٠٠٠مجم" loading="lazy"></div>
+  <div class="body"><div class="name">فيتامين C ١٠٠٠مجم</div>
+  <div class="spec">٣٠ قرصاً فوار</div>
+  <div class="price">4,500 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="كمامات طبية" data-price="2800">
+  <div class="thumb"><img src="../img/pharmacy/mask.jpg" alt="كمامات طبية" loading="lazy"></div>
+  <div class="body"><div class="name">كمامات طبية</div>
+  <div class="spec">علبة ٥٠ كمامة</div>
+  <div class="price">2,800 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="جهاز قياس الضغط" data-price="32000">
+  <div class="thumb"><img src="../img/pharmacy/bp.jpg" alt="جهاز قياس الضغط" loading="lazy"></div>
+  <div class="body"><div class="name">جهاز قياس الضغط</div>
+  <div class="spec">رقمي · للذراع</div>
+  <div class="price">32,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="ميزان حرارة رقمي" data-price="6500">
+  <div class="thumb"><img src="../img/pharmacy/thermo.jpg" alt="ميزان حرارة رقمي" loading="lazy"></div>
+  <div class="body"><div class="name">ميزان حرارة رقمي</div>
+  <div class="spec">قياس سريع</div>
+  <div class="price">6,500 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="مطهر جروح" data-price="3400">
+  <div class="thumb"><img src="../img/pharmacy/antiseptic.jpg" alt="مطهر جروح" loading="lazy"></div>
+  <div class="body"><div class="name">مطهر جروح</div>
+  <div class="spec">٥٠٠ مل</div>
+  <div class="price">3,400 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="لاصق جروح" data-price="1500">
+  <div class="thumb"><img src="../img/pharmacy/bandage.jpg" alt="لاصق جروح" loading="lazy"></div>
+  <div class="body"><div class="name">لاصق جروح</div>
+  <div class="spec">علبة ٤٠ قطعة</div>
+  <div class="price">1,500 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="قفازات فحص" data-price="3900">
+  <div class="thumb"><img src="../img/pharmacy/gloves.jpg" alt="قفازات فحص" loading="lazy"></div>
+  <div class="body"><div class="name">قفازات فحص</div>
+  <div class="spec">علبة ١٠٠</div>
+  <div class="price">3,900 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article></div>
+<p class="empty" id="empty" hidden>لا توجد نتائج مطابقة</p></div>
+<script>
+const q=document.getElementById('q'), s=document.getElementById('sort'),
+      g=document.getElementById('grid'), em=document.getElementById('empty'),
+      cards=[...g.children];
+function apply(){const t=q.value.trim(), m=cards.map(c=>[c,c.dataset.name.includes(t)]);
+  m.forEach(([c,ok])=>c.hidden=!ok);
+  const vis=m.filter(x=>x[1]).map(x=>x[0]);
+  if(s.value!=='def'){const d=s.value==='asc'?1:-1;
+    vis.sort((a,b)=>(+a.dataset.price-+b.dataset.price)*d).forEach(c=>g.appendChild(c));}
+  em.hidden=vis.length>0;}
+q.addEventListener('input',apply); s.addEventListener('change',apply);
+</script><footer><details><summary>مصادر الصور وتراخيصها (ويكيميديا كومنز)</summary><ul><li><a href="https://commons.wikimedia.org/wiki/File:Acetaminophen.jpg" target="_blank" rel="noopener">Acetaminophen.jpg</a> — Keresluna · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Celaskon_500mg_tablets.jpg" target="_blank" rel="noopener">Celaskon 500mg tablets.jpg</a> — 1milk6ice · CC0</li><li><a href="https://commons.wikimedia.org/wiki/File:Blossom_3_Ply_Bacterial_Filter_Masks_Elestic_Earloop_Face_Mask_Surgical_Masks_a.jpg" target="_blank" rel="noopener">Blossom 3 Ply Bacterial Filter Masks Elestic Earloop Face Mask Surgical Masks a.jpg</a> — No machine-readable author provided. Blossoma assumed (based on copyright claims · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Blood_pressure_sphygmomanometer_1ede124095e511e397fb0eaf6d89903c_8.jpg" target="_blank" rel="noopener">Blood pressure sphygmomanometer 1ede124095e511e397fb0eaf6d89903c 8.jpg</a> — Tony Webster · CC BY-SA 3.0</li><li><a href="https://commons.wikimedia.org/wiki/File:-_Thermometer_-.jpg" target="_blank" rel="noopener">- Thermometer -.jpg</a> — User:Nino Barbieri · CC BY 2.5</li><li><a href="https://commons.wikimedia.org/wiki/File:Detol_Cairan_Antiseptic.jpg" target="_blank" rel="noopener">Detol Cairan Antiseptic.jpg</a> — DARMAS SB 9 · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Adhesive_bandage.jpg" target="_blank" rel="noopener">Adhesive bandage.jpg</a> — Beendy234 · CC BY 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Nitrile_Gloves_holder_20230316_110111.jpg" target="_blank" rel="noopener">Nitrile Gloves holder 20230316 110111.jpg</a> — Kiran891 · CC BY-SA 4.0</li></ul><p style="margin-top:8px">الصور بتراخيص حرة، والنسب أعلاه شرط الترخيص.</p></details></footer></body></html>

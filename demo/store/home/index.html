@@ -1,0 +1,99 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>مستلزمات منزلية — سوق السودان الكبير</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0b1220;--card:#141d2e;--line:#25314a;--ink:#eef3fb;--mut:#93a3bd;--gold:#e7c46a;--green:#1f6b57}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:18px}
+header.top{background:linear-gradient(135deg,#0f2f27,#12203a);border-bottom:1px solid var(--line);padding:26px 18px}
+.brand{display:flex;align-items:center;gap:12px;max-width:1180px;margin:0 auto}
+.logo{width:46px;height:46px;border-radius:13px;background:var(--gold);color:#20180a;display:grid;place-items:center;font-weight:800;font-size:22px}
+h1{font-size:22px;letter-spacing:.2px}
+.tag{color:var(--mut);font-size:13px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+input[type=search],select{background:#0f1829;border:1px solid var(--line);color:var(--ink);padding:10px 14px;border-radius:11px;font-size:14px;font-family:inherit}
+input[type=search]{flex:1;min-width:200px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
+.chip{background:#101a2b;border:1px solid var(--line);padding:7px 13px;border-radius:999px;font-size:13px;color:var(--mut);cursor:pointer}
+.chip.on{background:rgba(231,196,106,.14);border-color:var(--gold);color:var(--gold)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:4/3;background:#fff;display:grid;place-items:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.name{font-weight:700;font-size:15px}
+.spec{color:var(--mut);font-size:12.5px;min-height:34px}
+.price{color:var(--gold);font-weight:800;font-size:16px;margin-top:auto}
+.price s{color:#6b7a94;font-weight:500;font-size:12px;margin-inline-start:8px}
+.btn{margin-top:10px;background:var(--green);color:#fff;border:0;padding:9px;border-radius:10px;font-family:inherit;font-weight:700;font-size:13.5px}
+.cat-card .thumb{aspect-ratio:16/9}
+.cat-card .body{padding:14px}
+.cat-name{font-size:17px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.count{color:var(--mut);font-size:13px}
+footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 18px;color:var(--mut);font-size:12px}
+footer details{max-width:1180px;margin:0 auto}
+footer ul{margin:8px 0 0 18px}
+footer li{margin:3px 0}
+.crumb{color:var(--mut);font-size:13px;margin:14px 0 0}
+.empty{color:var(--mut);padding:26px;text-align:center}
+</style></head><body><header class="top"><div class="brand"><div class="logo">🏠</div>
+<div><h1>مستلزمات منزلية</h1><div class="tag">كل ما يحتاجه البيت</div></div></div></header>
+<div class="wrap"><p class="crumb"><a href="../">← كل الأقسام</a> · 8 منتجاً</p>
+<div class="bar"><input type="search" id="q" placeholder="ابحث في مستلزمات منزلية…">
+<select id="sort"><option value="def">الترتيب الافتراضي</option><option value="asc">السعر: الأقل أولاً</option>
+<option value="desc">السعر: الأعلى أولاً</option></select></div>
+<div class="grid" id="grid"><article class="card" data-name="طقم أدوات مطبخ" data-price="68000">
+  <div class="thumb"><img src="../img/home/cookware.jpg" alt="طقم أدوات مطبخ" loading="lazy"></div>
+  <div class="body"><div class="name">طقم أدوات مطبخ</div>
+  <div class="spec">١٠ قطع stanلس ستيل</div>
+  <div class="price">68,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="كاسات مياه" data-price="7800">
+  <div class="thumb"><img src="../img/home/glasses.jpg" alt="كاسات مياه" loading="lazy"></div>
+  <div class="body"><div class="name">كاسات مياه</div>
+  <div class="spec">٦ كاسات</div>
+  <div class="price">7,800 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="سكين مطبخ" data-price="9500">
+  <div class="thumb"><img src="../img/home/knife.jpg" alt="سكين مطبخ" loading="lazy"></div>
+  <div class="body"><div class="name">سكين مطبخ</div>
+  <div class="spec">فولاذ ألماني</div>
+  <div class="price">9,500 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="مقلاة غير لاصقة" data-price="14500">
+  <div class="thumb"><img src="../img/home/pan.jpg" alt="مقلاة غير لاصقة" loading="lazy"></div>
+  <div class="body"><div class="name">مقلاة غير لاصقة</div>
+  <div class="spec">٢٨ سم</div>
+  <div class="price">14,500 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="مرتبة سرير" data-price="185000">
+  <div class="thumb"><img src="../img/home/mattress.jpg" alt="مرتبة سرير" loading="lazy"></div>
+  <div class="body"><div class="name">مرتبة سرير</div>
+  <div class="spec">١٦٠×٢٠٠</div>
+  <div class="price">185,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="سجادة صلاة" data-price="16000">
+  <div class="thumb"><img src="../img/home/carpet.jpg" alt="سجادة صلاة" loading="lazy"></div>
+  <div class="body"><div class="name">سجادة صلاة</div>
+  <div class="spec">مخمل · مقاس كبير</div>
+  <div class="price">16,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="مصباح طاولة" data-price="9800">
+  <div class="thumb"><img src="../img/home/lamp.jpg" alt="مصباح طاولة" loading="lazy"></div>
+  <div class="body"><div class="name">مصباح طاولة</div>
+  <div class="spec">LED · إضاءة دافئة</div>
+  <div class="price">9,800 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="مكنسة كهربائية" data-price="96000">
+  <div class="thumb"><img src="../img/home/vacuum.jpg" alt="مكنسة كهربائية" loading="lazy"></div>
+  <div class="body"><div class="name">مكنسة كهربائية</div>
+  <div class="spec">٢٠٠٠ واط</div>
+  <div class="price">96,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article></div>
+<p class="empty" id="empty" hidden>لا توجد نتائج مطابقة</p></div>
+<script>
+const q=document.getElementById('q'), s=document.getElementById('sort'),
+      g=document.getElementById('grid'), em=document.getElementById('empty'),
+      cards=[...g.children];
+function apply(){const t=q.value.trim(), m=cards.map(c=>[c,c.dataset.name.includes(t)]);
+  m.forEach(([c,ok])=>c.hidden=!ok);
+  const vis=m.filter(x=>x[1]).map(x=>x[0]);
+  if(s.value!=='def'){const d=s.value==='asc'?1:-1;
+    vis.sort((a,b)=>(+a.dataset.price-+b.dataset.price)*d).forEach(c=>g.appendChild(c));}
+  em.hidden=vis.length>0;}
+q.addEventListener('input',apply); s.addEventListener('change',apply);
+</script><footer><details><summary>مصادر الصور وتراخيصها (ويكيميديا كومنز)</summary><ul><li><a href="https://commons.wikimedia.org/wiki/File:40-year-old_set_of_kitchen_utensils_(40117388162).jpg" target="_blank" rel="noopener">40-year-old set of kitchen utensils (40117388162).jpg</a> — Andy / Andrew Fogg from near Cambridge, UK · CC BY 2.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Engraved_drinking_glass_01.jpg" target="_blank" rel="noopener">Engraved drinking glass 01.jpg</a> — Kritzolina · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:2020_Noże_kuchenne_Gerlach.jpg" target="_blank" rel="noopener">2020 Noże kuchenne Gerlach.jpg</a> — Jacek Halicki · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Frying_Pan_2_2019-03-21.jpg" target="_blank" rel="noopener">Frying Pan 2 2019-03-21.jpg</a> — FASTILY · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Mattress_in_Coventry_July_29_2021.jpg" target="_blank" rel="noopener">Mattress in Coventry July 29 2021.jpg</a> — Rubbish computer · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Prayer_Mat.jpg" target="_blank" rel="noopener">Prayer Mat.jpg</a> — Mian09 · CC0</li><li><a href="https://commons.wikimedia.org/wiki/File:Table_lamp.jpg" target="_blank" rel="noopener">Table lamp.jpg</a> — ShivamST · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Siemens_vacuum_cleaner_Super_500.jpg" target="_blank" rel="noopener">Siemens vacuum cleaner Super 500.jpg</a> — Smiley.toerist · CC BY-SA 4.0</li></ul><p style="margin-top:8px">الصور بتراخيص حرة، والنسب أعلاه شرط الترخيص.</p></details></footer></body></html>

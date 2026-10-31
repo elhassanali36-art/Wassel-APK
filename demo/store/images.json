@@ -1,0 +1,612 @@
+{
+ "grocery/tomato": {
+  "file": "img/grocery/tomato.jpg",
+  "title": "File:-365 first tomatoes (28515790072).jpg",
+  "license": "CC0",
+  "artist": "terri_bateman",
+  "category": "grocery",
+  "name": "طماطم طازجة",
+  "specs": "كيلو · مزارع الجزيرة",
+  "price": 2500
+ },
+ "grocery/banana": {
+  "file": "img/grocery/banana.jpg",
+  "title": "File:10.5 inch banana.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "BrokenSphere",
+  "category": "grocery",
+  "name": "موز بلدي",
+  "specs": "كيلو · ناضج",
+  "price": 1800
+ },
+ "grocery/milk": {
+  "file": "img/grocery/milk.jpg",
+  "title": "File:-2019-09-07 UHT milk and specialist milk, Coop, Cromer.JPG",
+  "license": "CC BY-SA 4.0",
+  "artist": "Kolforn (Kolforn)\nI'd appreciate if you could mail me (Kolforn@gmail.com) if you",
+  "category": "grocery",
+  "name": "حليب كامل الدسم",
+  "specs": "١ لتر",
+  "price": 3100
+ },
+ "grocery/eggs": {
+  "file": "img/grocery/eggs.jpg",
+  "title": "File:A Basket of Chicken Eggs at Tuen Mun.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Peachyeung316",
+  "category": "grocery",
+  "name": "بيض مائدة",
+  "specs": "طبق ٣٠ بيضة",
+  "price": 9800
+ },
+ "pharmacy/mask": {
+  "file": "img/pharmacy/mask.jpg",
+  "title": "File:Blossom 3 Ply Bacterial Filter Masks Elestic Earloop Face Mask Surgical Masks a.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "No machine-readable author provided. Blossoma assumed (based on copyright claims",
+  "category": "pharmacy",
+  "name": "كمامات طبية",
+  "specs": "علبة ٥٠ كمامة",
+  "price": 2800
+ },
+ "pharmacy/bp": {
+  "file": "img/pharmacy/bp.jpg",
+  "title": "File:Blood pressure sphygmomanometer 1ede124095e511e397fb0eaf6d89903c 8.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Tony Webster",
+  "category": "pharmacy",
+  "name": "جهاز قياس الضغط",
+  "specs": "رقمي · للذراع",
+  "price": 32000
+ },
+ "grocery/oil": {
+  "file": "img/grocery/oil.jpg",
+  "title": "File:Bottle 1 liter Sunflower refined oil.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Exgsp Gmbh LLC BOTTLE 1 liter Sunflower refined oil",
+  "category": "grocery",
+  "name": "زيت ذرة",
+  "specs": "١.٨ لتر",
+  "price": 8900
+ },
+ "pharmacy/paracetamol": {
+  "file": "img/pharmacy/paracetamol.jpg",
+  "title": "File:Acetaminophen.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Keresluna",
+  "category": "pharmacy",
+  "name": "باراسيتامول ٥٠٠مجم",
+  "specs": "٢٠ قرصاً",
+  "price": 1200
+ },
+ "pharmacy/vitc": {
+  "file": "img/pharmacy/vitc.jpg",
+  "title": "File:Celaskon 500mg tablets.jpg",
+  "license": "CC0",
+  "artist": "1milk6ice",
+  "category": "pharmacy",
+  "name": "فيتامين C ١٠٠٠مجم",
+  "specs": "٣٠ قرصاً فوار",
+  "price": 4500
+ },
+ "pharmacy/antiseptic": {
+  "file": "img/pharmacy/antiseptic.jpg",
+  "title": "File:Detol Cairan Antiseptic.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "DARMAS SB 9",
+  "category": "pharmacy",
+  "name": "مطهر جروح",
+  "specs": "٥٠٠ مل",
+  "price": 3400
+ },
+ "pharmacy/bandage": {
+  "file": "img/pharmacy/bandage.jpg",
+  "title": "File:Adhesive bandage.jpg",
+  "license": "CC BY 4.0",
+  "artist": "Beendy234",
+  "category": "pharmacy",
+  "name": "لاصق جروح",
+  "specs": "علبة ٤٠ قطعة",
+  "price": 1500
+ },
+ "pharmacy/gloves": {
+  "file": "img/pharmacy/gloves.jpg",
+  "title": "File:Nitrile Gloves holder 20230316 110111.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Kiran891",
+  "category": "pharmacy",
+  "name": "قفازات فحص",
+  "specs": "علبة ١٠٠",
+  "price": 3900
+ },
+ "restaurant/burger": {
+  "file": "img/restaurant/burger.jpg",
+  "title": "File:Argentine homemade hamburger with lettuce, tomato and cheese.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Horacio Cambeiro",
+  "category": "restaurant",
+  "name": "برجر لحم مزدوج",
+  "specs": "مع بطاطس وجبنة",
+  "price": 7500
+ },
+ "restaurant/pizza": {
+  "file": "img/restaurant/pizza.jpg",
+  "title": "File:1.50 dolar pizza (2).jpg",
+  "license": "CC BY 4.0",
+  "artist": "Ferfive",
+  "category": "restaurant",
+  "name": "بيتزا عائلية",
+  "specs": "٨ قطع · جبنة وخضار",
+  "price": 11000
+ },
+ "restaurant/shawarma": {
+  "file": "img/restaurant/shawarma.jpg",
+  "title": "File:2017-06-02 Shawarma on Prager Straße, Dresden.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Maksym Kozlenko",
+  "category": "restaurant",
+  "name": "شاورما دجاج",
+  "specs": "ساندويتش مع صوص",
+  "price": 3800
+ },
+ "restaurant/falafel": {
+  "file": "img/restaurant/falafel.jpg",
+  "title": "File:1 falafel.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Thomon",
+  "category": "restaurant",
+  "name": "فلافل سودانية",
+  "specs": "٦ قطع مع طماطم",
+  "price": 2200
+ },
+ "restaurant/kabsa": {
+  "file": "img/restaurant/kabsa.jpg",
+  "title": "File:Kabsa (6486384335).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Sammy Six",
+  "category": "restaurant",
+  "name": "كبسة لحم",
+  "specs": "وجبة كاملة",
+  "price": 12500
+ },
+ "restaurant/juice": {
+  "file": "img/restaurant/juice.jpg",
+  "title": "File:A mango juice.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Thamizhpparithi Maari",
+  "category": "restaurant",
+  "name": "عصير مانجو طازج",
+  "specs": "٤٠٠ مل",
+  "price": 2600
+ },
+ "restaurant/cake": {
+  "file": "img/restaurant/cake.jpg",
+  "title": "File:2019-12-24 21 11 19 A slice of chocolate cake in Hamilton Township, Mercer County, New Jersey.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Famartin",
+  "category": "restaurant",
+  "name": "كيك شوكولاتة",
+  "specs": "قطعة كبيرة",
+  "price": 3200
+ },
+ "electronics/tv": {
+  "file": "img/electronics/tv.jpg",
+  "title": "File:4 TELEVISION.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Museuvalenciaetnologia",
+  "category": "electronics",
+  "name": "تلفزيون سمارت ٥٥ بوصة",
+  "specs": "4K · أندرويد",
+  "price": 385000
+ },
+ "electronics/laptop": {
+  "file": "img/electronics/laptop.jpg",
+  "title": "File:Laptop computer.jpeg",
+  "license": "CC BY-SA 4.0",
+  "artist": "KK IN HK",
+  "category": "electronics",
+  "name": "لابتوب ١٥ بوصة",
+  "specs": "Core i5 · 16GB · SSD",
+  "price": 690000
+ },
+ "electronics/camera": {
+  "file": "img/electronics/camera.jpg",
+  "title": "File:012 365 - 05 12 2012 - EarthLink Digital Camera (7185810894).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Shardayyy Photography",
+  "category": "electronics",
+  "name": "كاميرا رقمية",
+  "specs": "٢٤ ميجابكسل",
+  "price": 420000
+ },
+ "electronics/blender": {
+  "file": "img/electronics/blender.jpg",
+  "title": "File:Blender with ingredients for spicy buffalo chicken nachos on a kitchen counter next to a bottle of wine and cooking utensils (16327931725).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Personal Creations",
+  "category": "electronics",
+  "name": "خلاط كهربائي",
+  "specs": "٣ سرعات",
+  "price": 56000
+ },
+ "fashion/hijab": {
+  "file": "img/fashion/hijab.jpg",
+  "title": "File:Hijab Style (23713551).jpeg",
+  "license": "CC BY 3.0",
+  "artist": "D Nan Photography",
+  "category": "fashion",
+  "name": "طقم حجاب",
+  "specs": "٣ قطع بألوان",
+  "price": 9500
+ },
+ "grocery/rice": {
+  "file": "img/grocery/rice.jpg",
+  "title": "File:Rice grain sprouted.jpg",
+  "license": "CC BY 4.0",
+  "artist": "Inspiron 15 3000",
+  "category": "grocery",
+  "name": "أرز مصري",
+  "specs": "٥ كجم · حبة طويلة",
+  "price": 12500
+ },
+ "grocery/sugar": {
+  "file": "img/grocery/sugar.jpg",
+  "title": "File:HK Central Ritz-Calton Hotel Hong Kong Hotel Sugar packs.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "RZHOS",
+  "category": "grocery",
+  "name": "سكر ناعم",
+  "specs": "٢ كجم",
+  "price": 5600
+ },
+ "grocery/water": {
+  "file": "img/grocery/water.jpg",
+  "title": "File:Bottled water in Ghana.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Edithobayaa1",
+  "category": "grocery",
+  "name": "مياه معدنية",
+  "specs": "٦ × ١.٥ لتر",
+  "price": 4200
+ },
+ "pharmacy/thermo": {
+  "file": "img/pharmacy/thermo.jpg",
+  "title": "File:- Thermometer -.jpg",
+  "license": "CC BY 2.5",
+  "artist": "User:Nino Barbieri",
+  "category": "pharmacy",
+  "name": "ميزان حرارة رقمي",
+  "specs": "قياس سريع",
+  "price": 6500
+ },
+ "restaurant/tea": {
+  "file": "img/restaurant/tea.jpg",
+  "title": "File:2023 Filiżanka do herbaty.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Jacek Halicki",
+  "category": "restaurant",
+  "name": "شاي بالحليب",
+  "specs": "كوب كبير",
+  "price": 900
+ },
+ "electronics/headphones": {
+  "file": "img/electronics/headphones.jpg",
+  "title": "File:2023 Słuchawki Sony WI-XB400 (1).jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Jacek Halicki",
+  "category": "electronics",
+  "name": "هيدفون لاسلكي",
+  "specs": "عزل ضجيج",
+  "price": 68000
+ },
+ "electronics/ac": {
+  "file": "img/electronics/ac.jpg",
+  "title": "File:Air conditioner, Sofia (P1070790).jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Matti Blume",
+  "category": "electronics",
+  "name": "مكيف سبليت ١.٥ طن",
+  "specs": "تبريد سريع",
+  "price": 960000
+ },
+ "electronics/fridge": {
+  "file": "img/electronics/fridge.jpg",
+  "title": "File:'Silent Knight' refrigerator brand badge.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "TrimmerinWiki",
+  "category": "electronics",
+  "name": "ثلاجة ١٦ قدم",
+  "specs": "نوفروست",
+  "price": 780000
+ },
+ "electronics/iron": {
+  "file": "img/electronics/iron.jpg",
+  "title": "File:Charcoal iron open.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Vincent de Groot - http://www.videgro.net",
+  "category": "electronics",
+  "name": "مكواة بخار",
+  "specs": "قاعدة سيراميك",
+  "price": 42000
+ },
+ "fashion/shirt": {
+  "file": "img/fashion/shirt.jpg",
+  "title": "File:Banana Republic Button-Down Shirt 1 2019-03-21.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "FASTILY",
+  "category": "fashion",
+  "name": "قميص قطن كلاسيك",
+  "specs": "أبيض · L",
+  "price": 18000
+ },
+ "fashion/jeans": {
+  "file": "img/fashion/jeans.jpg",
+  "title": "File:Broken twill denim Wrangler 13MWZ jeans (2026-01-21).jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Olgierd Rudak",
+  "category": "fashion",
+  "name": "بنطال جينز",
+  "specs": "مقاسات ٣٠-٤٠",
+  "price": 26000
+ },
+ "fashion/dress": {
+  "file": "img/fashion/dress.jpg",
+  "title": "File:\"Summer Dress\".jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Barbara Segal",
+  "category": "fashion",
+  "name": "فستان صيفي",
+  "specs": "قطن مطرز",
+  "price": 34000
+ },
+ "fashion/jacket": {
+  "file": "img/fashion/jacket.jpg",
+  "title": "File:2005 Autumn-Winter Maison Margiela 'Artisanal' jacket and top 2.jpg",
+  "license": "CC0",
+  "artist": "Staff photographer for the Rhode Island School of Design Museum of Art",
+  "category": "fashion",
+  "name": "جاكيت شتوي",
+  "specs": "معزول ضد الماء",
+  "price": 38000
+ },
+ "fashion/sneakers": {
+  "file": "img/fashion/sneakers.jpg",
+  "title": "File:2023 Adidas Yeezy 350 V2 EF2905 (1).jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Jacek Halicki",
+  "category": "fashion",
+  "name": "حذاء رياضي",
+  "specs": "مقاسات ٣٩-٤٥",
+  "price": 42000
+ },
+ "fashion/wallet": {
+  "file": "img/fashion/wallet.jpg",
+  "title": "File:Aarong leather wallet.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Nafis Fuad Ayon",
+  "category": "fashion",
+  "name": "محفظة جلد",
+  "specs": "جيب متعدد",
+  "price": 15000
+ },
+ "home/cookware": {
+  "file": "img/home/cookware.jpg",
+  "title": "File:40-year-old set of kitchen utensils (40117388162).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Andy / Andrew Fogg from near Cambridge, UK",
+  "category": "home",
+  "name": "طقم أدوات مطبخ",
+  "specs": "١٠ قطع stanلس ستيل",
+  "price": 68000
+ },
+ "home/glasses": {
+  "file": "img/home/glasses.jpg",
+  "title": "File:Engraved drinking glass 01.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Kritzolina",
+  "category": "home",
+  "name": "كاسات مياه",
+  "specs": "٦ كاسات",
+  "price": 7800
+ },
+ "home/knife": {
+  "file": "img/home/knife.jpg",
+  "title": "File:2020 Noże kuchenne Gerlach.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Jacek Halicki",
+  "category": "home",
+  "name": "سكين مطبخ",
+  "specs": "فولاذ ألماني",
+  "price": 9500
+ },
+ "home/pan": {
+  "file": "img/home/pan.jpg",
+  "title": "File:Frying Pan 2 2019-03-21.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "FASTILY",
+  "category": "home",
+  "name": "مقلاة غير لاصقة",
+  "specs": "٢٨ سم",
+  "price": 14500
+ },
+ "home/mattress": {
+  "file": "img/home/mattress.jpg",
+  "title": "File:Mattress in Coventry July 29 2021.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Rubbish computer",
+  "category": "home",
+  "name": "مرتبة سرير",
+  "specs": "١٦٠×٢٠٠",
+  "price": 185000
+ },
+ "home/carpet": {
+  "file": "img/home/carpet.jpg",
+  "title": "File:Prayer Mat.jpg",
+  "license": "CC0",
+  "artist": "Mian09",
+  "category": "home",
+  "name": "سجادة صلاة",
+  "specs": "مخمل · مقاس كبير",
+  "price": 16000
+ },
+ "home/vacuum": {
+  "file": "img/home/vacuum.jpg",
+  "title": "File:Siemens vacuum cleaner Super 500.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Smiley.toerist",
+  "category": "home",
+  "name": "مكنسة كهربائية",
+  "specs": "٢٠٠٠ واط",
+  "price": 96000
+ },
+ "kids/doll": {
+  "file": "img/kids/doll.jpg",
+  "title": "File:Doll MET DP8259.jpg",
+  "license": "CC0",
+  "artist": "",
+  "category": "kids",
+  "name": "دمية أطفال",
+  "specs": "٤٠ سم",
+  "price": 14500
+ },
+ "kids/lego": {
+  "file": "img/kids/lego.jpg",
+  "title": "File:Lego bricks.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Benjamin D. Esham (bdesham)",
+  "category": "kids",
+  "name": "مكعبات بناء",
+  "specs": "٣٠٠ قطعة",
+  "price": 18500
+ },
+ "kids/stroller": {
+  "file": "img/kids/stroller.jpg",
+  "title": "File:BabyCarriage 20210713 102412.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Ka23 13",
+  "category": "kids",
+  "name": "عربة أطفال",
+  "specs": "قابلة للطي",
+  "price": 120000
+ },
+ "kids/formula": {
+  "file": "img/kids/formula.jpg",
+  "title": "File:Enfamil - infant formula.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "chelly cruz from glendale, usa",
+  "category": "kids",
+  "name": "حليب أطفال",
+  "specs": "٤٠٠ جم",
+  "price": 13800
+ },
+ "kids/bike": {
+  "file": "img/kids/bike.jpg",
+  "title": "File:Balance bicycle with skies.jpg",
+  "license": "Public domain",
+  "artist": "Ohel003 (talk · contribs) (Outi Leinonen)",
+  "category": "kids",
+  "name": "دراجة أطفال",
+  "specs": "١٢ بوصة",
+  "price": 68000
+ },
+ "kids/puzzle": {
+  "file": "img/kids/puzzle.jpg",
+  "title": "File:Jigsaw puzzle 01 by Scouten.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Scouten",
+  "category": "kids",
+  "name": "بازل تعليمي",
+  "specs": "١٠٠ قطعة",
+  "price": 6500
+ },
+ "kids/ball": {
+  "file": "img/kids/ball.jpg",
+  "title": "File:Just a soccer ball (34782492153).jpg",
+  "license": "CC BY 2.0",
+  "artist": "bluesbby from Mountain View, USA",
+  "category": "kids",
+  "name": "كرة قدم",
+  "specs": "مقاس ٤",
+  "price": 7200
+ },
+ "beauty/perfume": {
+  "file": "img/beauty/perfume.jpg",
+  "title": "File:Glass perfume bottle MET DP108471.jpg",
+  "license": "CC0",
+  "artist": "",
+  "category": "beauty",
+  "name": "عطر شرقي ١٠٠مل",
+  "specs": "ثبات طويل",
+  "price": 52000
+ },
+ "beauty/lipstick": {
+  "file": "img/beauty/lipstick.jpg",
+  "title": "File:DiorLippenstift.jpg",
+  "license": "Public domain",
+  "artist": "Sjr",
+  "category": "beauty",
+  "name": "أحمر شفاه مات",
+  "specs": "درجات ثابتة",
+  "price": 7800
+ },
+ "beauty/soap": {
+  "file": "img/beauty/soap.jpg",
+  "title": "File:A bar of soap.jpg",
+  "license": "Public domain",
+  "artist": "No machine-readable author provided. Lacrimosus assumed (based on copyright clai",
+  "category": "beauty",
+  "name": "صابون طبيعي",
+  "specs": "٣ قطع",
+  "price": 3200
+ },
+ "beauty/deodorant": {
+  "file": "img/beauty/deodorant.jpg",
+  "title": "File:20-06-18-Deoroller RRK6899.jpg",
+  "license": "CC BY-SA 1.0 fi",
+  "artist": "Ralf Roletschek",
+  "category": "beauty",
+  "name": "مزيل عرق",
+  "specs": "٥٠ مل",
+  "price": 5400
+ },
+ "beauty/brush": {
+  "file": "img/beauty/brush.jpg",
+  "title": "File:Makeup brush set (Unsplash).jpg",
+  "license": "CC0",
+  "artist": "freestocks.org freestocks",
+  "category": "beauty",
+  "name": "طقم فرش مكياج",
+  "specs": "١٢ فرشاة",
+  "price": 11500
+ },
+ "beauty/palette": {
+  "file": "img/beauty/palette.jpg",
+  "title": "File:Eye Makeup Palette and Brush Kit.jpg",
+  "license": "CC BY 2.0",
+  "artist": "geehairimages",
+  "category": "beauty",
+  "name": "باليت ظلال",
+  "specs": "١٢ لوناً",
+  "price": 15500
+ },
+ "beauty/shampoo": {
+  "file": "img/beauty/shampoo.jpg",
+  "title": "File:Green shampoo bottle.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Mezoneni",
+  "category": "beauty",
+  "name": "شامبو",
+  "specs": "٤٠٠ مل",
+  "price": 9500
+ },
+ "home/lamp": {
+  "file": "img/home/lamp.jpg",
+  "title": "File:Table lamp.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "ShivamST",
+  "category": "home",
+  "name": "مصباح طاولة",
+  "specs": "LED · إضاءة دافئة",
+  "price": 9800
+ }
+}

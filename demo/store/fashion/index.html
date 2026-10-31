@@ -1,0 +1,94 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>أزياء وملابس — سوق السودان الكبير</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0b1220;--card:#141d2e;--line:#25314a;--ink:#eef3fb;--mut:#93a3bd;--gold:#e7c46a;--green:#1f6b57}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,system-ui,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:18px}
+header.top{background:linear-gradient(135deg,#0f2f27,#12203a);border-bottom:1px solid var(--line);padding:26px 18px}
+.brand{display:flex;align-items:center;gap:12px;max-width:1180px;margin:0 auto}
+.logo{width:46px;height:46px;border-radius:13px;background:var(--gold);color:#20180a;display:grid;place-items:center;font-weight:800;font-size:22px}
+h1{font-size:22px;letter-spacing:.2px}
+.tag{color:var(--mut);font-size:13px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+input[type=search],select{background:#0f1829;border:1px solid var(--line);color:var(--ink);padding:10px 14px;border-radius:11px;font-size:14px;font-family:inherit}
+input[type=search]{flex:1;min-width:200px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
+.chip{background:#101a2b;border:1px solid var(--line);padding:7px 13px;border-radius:999px;font-size:13px;color:var(--mut);cursor:pointer}
+.chip.on{background:rgba(231,196,106,.14);border-color:var(--gold);color:var(--gold)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:4/3;background:#fff;display:grid;place-items:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.name{font-weight:700;font-size:15px}
+.spec{color:var(--mut);font-size:12.5px;min-height:34px}
+.price{color:var(--gold);font-weight:800;font-size:16px;margin-top:auto}
+.price s{color:#6b7a94;font-weight:500;font-size:12px;margin-inline-start:8px}
+.btn{margin-top:10px;background:var(--green);color:#fff;border:0;padding:9px;border-radius:10px;font-family:inherit;font-weight:700;font-size:13.5px}
+.cat-card .thumb{aspect-ratio:16/9}
+.cat-card .body{padding:14px}
+.cat-name{font-size:17px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.count{color:var(--mut);font-size:13px}
+footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 18px;color:var(--mut);font-size:12px}
+footer details{max-width:1180px;margin:0 auto}
+footer ul{margin:8px 0 0 18px}
+footer li{margin:3px 0}
+.crumb{color:var(--mut);font-size:13px;margin:14px 0 0}
+.empty{color:var(--mut);padding:26px;text-align:center}
+</style></head><body><header class="top"><div class="brand"><div class="logo">👗</div>
+<div><h1>أزياء وملابس</h1><div class="tag">مقاسات لكل الأعمار</div></div></div></header>
+<div class="wrap"><p class="crumb"><a href="../">← كل الأقسام</a> · 7 منتجاً</p>
+<div class="bar"><input type="search" id="q" placeholder="ابحث في أزياء وملابس…">
+<select id="sort"><option value="def">الترتيب الافتراضي</option><option value="asc">السعر: الأقل أولاً</option>
+<option value="desc">السعر: الأعلى أولاً</option></select></div>
+<div class="grid" id="grid"><article class="card" data-name="قميص قطن كلاسيك" data-price="18000">
+  <div class="thumb"><img src="../img/fashion/shirt.jpg" alt="قميص قطن كلاسيك" loading="lazy"></div>
+  <div class="body"><div class="name">قميص قطن كلاسيك</div>
+  <div class="spec">أبيض · L</div>
+  <div class="price">18,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="بنطال جينز" data-price="26000">
+  <div class="thumb"><img src="../img/fashion/jeans.jpg" alt="بنطال جينز" loading="lazy"></div>
+  <div class="body"><div class="name">بنطال جينز</div>
+  <div class="spec">مقاسات ٣٠-٤٠</div>
+  <div class="price">26,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="فستان صيفي" data-price="34000">
+  <div class="thumb"><img src="../img/fashion/dress.jpg" alt="فستان صيفي" loading="lazy"></div>
+  <div class="body"><div class="name">فستان صيفي</div>
+  <div class="spec">قطن مطرز</div>
+  <div class="price">34,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="طقم حجاب" data-price="9500">
+  <div class="thumb"><img src="../img/fashion/hijab.jpg" alt="طقم حجاب" loading="lazy"></div>
+  <div class="body"><div class="name">طقم حجاب</div>
+  <div class="spec">٣ قطع بألوان</div>
+  <div class="price">9,500 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="جاكيت شتوي" data-price="38000">
+  <div class="thumb"><img src="../img/fashion/jacket.jpg" alt="جاكيت شتوي" loading="lazy"></div>
+  <div class="body"><div class="name">جاكيت شتوي</div>
+  <div class="spec">معزول ضد الماء</div>
+  <div class="price">38,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="حذاء رياضي" data-price="42000">
+  <div class="thumb"><img src="../img/fashion/sneakers.jpg" alt="حذاء رياضي" loading="lazy"></div>
+  <div class="body"><div class="name">حذاء رياضي</div>
+  <div class="spec">مقاسات ٣٩-٤٥</div>
+  <div class="price">42,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article><article class="card" data-name="محفظة جلد" data-price="15000">
+  <div class="thumb"><img src="../img/fashion/wallet.jpg" alt="محفظة جلد" loading="lazy"></div>
+  <div class="body"><div class="name">محفظة جلد</div>
+  <div class="spec">جيب متعدد</div>
+  <div class="price">15,000 <span style="font-size:11px">ج.س</span></div>
+  <button class="btn">أضف إلى السلة</button></div></article></div>
+<p class="empty" id="empty" hidden>لا توجد نتائج مطابقة</p></div>
+<script>
+const q=document.getElementById('q'), s=document.getElementById('sort'),
+      g=document.getElementById('grid'), em=document.getElementById('empty'),
+      cards=[...g.children];
+function apply(){const t=q.value.trim(), m=cards.map(c=>[c,c.dataset.name.includes(t)]);
+  m.forEach(([c,ok])=>c.hidden=!ok);
+  const vis=m.filter(x=>x[1]).map(x=>x[0]);
+  if(s.value!=='def'){const d=s.value==='asc'?1:-1;
+    vis.sort((a,b)=>(+a.dataset.price-+b.dataset.price)*d).forEach(c=>g.appendChild(c));}
+  em.hidden=vis.length>0;}
+q.addEventListener('input',apply); s.addEventListener('change',apply);
+</script><footer><details><summary>مصادر الصور وتراخيصها (ويكيميديا كومنز)</summary><ul><li><a href="https://commons.wikimedia.org/wiki/File:Banana_Republic_Button-Down_Shirt_1_2019-03-21.jpg" target="_blank" rel="noopener">Banana Republic Button-Down Shirt 1 2019-03-21.jpg</a> — FASTILY · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Broken_twill_denim_Wrangler_13MWZ_jeans_(2026-01-21).jpg" target="_blank" rel="noopener">Broken twill denim Wrangler 13MWZ jeans (2026-01-21).jpg</a> — Olgierd Rudak · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:&quot;Summer_Dress&quot;.jpg" target="_blank" rel="noopener">&quot;Summer Dress&quot;.jpg</a> — Barbara Segal · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Hijab_Style_(23713551).jpeg" target="_blank" rel="noopener">Hijab Style (23713551).jpeg</a> — D Nan Photography · CC BY 3.0</li><li><a href="https://commons.wikimedia.org/wiki/File:2005_Autumn-Winter_Maison_Margiela_&#x27;Artisanal&#x27;_jacket_and_top_2.jpg" target="_blank" rel="noopener">2005 Autumn-Winter Maison Margiela &#x27;Artisanal&#x27; jacket and top 2.jpg</a> — Staff photographer for the Rhode Island School of Design Museum of Art · CC0</li><li><a href="https://commons.wikimedia.org/wiki/File:2023_Adidas_Yeezy_350_V2_EF2905_(1).jpg" target="_blank" rel="noopener">2023 Adidas Yeezy 350 V2 EF2905 (1).jpg</a> — Jacek Halicki · CC BY-SA 4.0</li><li><a href="https://commons.wikimedia.org/wiki/File:Aarong_leather_wallet.jpg" target="_blank" rel="noopener">Aarong leather wallet.jpg</a> — Nafis Fuad Ayon · CC BY-SA 4.0</li></ul><p style="margin-top:8px">الصور بتراخيص حرة، والنسب أعلاه شرط الترخيص.</p></details></footer></body></html>
